@@ -34,13 +34,16 @@ function setupCors(app: express.Application) {
       origin?.startsWith("http://localhost:") ||
       origin?.startsWith("http://127.0.0.1:");
 
-    if (origin && (origins.has(origin) || isLocalhost)) {
+    const isReplitWithPort = origin && process.env.REPLIT_DEV_DOMAIN &&
+      origin.includes(process.env.REPLIT_DEV_DOMAIN);
+
+    if (origin && (origins.has(origin) || isLocalhost || isReplitWithPort)) {
       res.header("Access-Control-Allow-Origin", origin);
       res.header(
         "Access-Control-Allow-Methods",
         "GET, POST, PUT, DELETE, OPTIONS",
       );
-      res.header("Access-Control-Allow-Headers", "Content-Type");
+      res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
       res.header("Access-Control-Allow-Credentials", "true");
     }
 
