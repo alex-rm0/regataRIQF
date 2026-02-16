@@ -44,7 +44,7 @@ export default function AdminScreen() {
   const [clearOnImport, setClearOnImport] = useState(true);
 
   const [entryForm, setEntryForm] = useState({
-    lane: "", clubName: "", clubAbbr: "",
+    lane: "", clubName: "",
   });
 
   const [notifForm, setNotifForm] = useState({
@@ -93,9 +93,8 @@ export default function AdminScreen() {
     await apiRequest("POST", `/api/races/${selectedRace.id}/entries`, {
       lane: parseInt(entryForm.lane),
       clubName: entryForm.clubName,
-      clubAbbr: entryForm.clubAbbr || null,
     }, authHeaders());
-    setEntryForm({ lane: "", clubName: "", clubAbbr: "" });
+    setEntryForm({ lane: "", clubName: "" });
     queryClient.invalidateQueries({ queryKey: ["/api/races"] });
   };
 
@@ -152,19 +151,67 @@ export default function AdminScreen() {
         lane: e.lane,
         clubName: e.clubName,
         resultTime: e.resultTime || "",
-        position: e.position ? String(e.position) : "",
         status: e.status || "DNS",
       }))
     );
     setShowResultModal(true);
   };
 
+  const formatTimeInput = (raw: string): string => {
+    const digits = raw.replace(/[^0-9]/g, "").slice(0, 7);
+    if (digits.length === 0) return "";
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 4) {
+      const secs = digits.slice(0, -2);
+      const hundredths = digits.slice(-2);
+      return `${secs}.${hundredths}`;
+    }
+    const hundredths = digits.slice(-2);
+    const remaining = digits.slice(0, -2);
+    const secs = remaining.slice(-2);
+    const mins = remaining.slice(0, -2);
+    return `${mins}:${secs}.${hundredths}`;
+  };
+
+  const parseTimeToMs = (timeStr: string): number | null => {
+    try {
+      const parts = timeStr.split(":");
+      if (parts.length === 2) {
+        const minutes = parseInt(parts[0]);
+        const secParts = parts[1].split(".");
+        const seconds = parseInt(secParts[0]);
+        const ms = secParts.length > 1 ? parseInt(secParts[1].padEnd(3, "0").slice(0, 3)) : 0;
+        return minutes * 60000 + seconds * 1000 + ms;
+      } else if (parts.length === 1) {
+        const secParts = timeStr.split(".");
+        const seconds = parseInt(secParts[0]);
+        const ms = secParts.length > 1 ? parseInt(secParts[1].padEnd(3, "0").slice(0, 3)) : 0;
+        return seconds * 1000 + ms;
+      }
+      return null;
+    } catch { return null; }
+  };
+
   const saveResults = async () => {
     if (!selectedRace) return;
+    const entriesWithTime = resultEntries
+      .map((e) => ({
+        ...e,
+        parsedTime: e.resultTime ? parseTimeToMs(e.resultTime) : null,
+      }))
+      .filter((e) => e.parsedTime !== null && e.status !== "DNS" && e.status !== "DNF" && e.status !== "DSQ");
+    
+    entriesWithTime.sort((a, b) => (a.parsedTime || 0) - (b.parsedTime || 0));
+    
+    const positionMap: Record<string, number> = {};
+    entriesWithTime.forEach((e, idx) => {
+      positionMap[e.id] = idx + 1;
+    });
+
     const results = resultEntries.map((e) => ({
       id: e.id,
       resultTime: e.resultTime || null,
-      position: e.position ? parseInt(e.position) : null,
+      position: positionMap[e.id] || null,
       status: e.resultTime ? "FIN" : e.status,
     }));
     await apiRequest("PUT", `/api/races/${selectedRace.id}/results`, { results }, authHeaders());
@@ -278,7 +325,7 @@ export default function AdminScreen() {
                   style={styles.addEntryBtn}
                   onPress={() => {
                     setSelectedRace(race);
-                    setEntryForm({ lane: String((race.entries?.length || 0) + 1), clubName: "", clubAbbr: "" });
+                    setEntryForm({ lane: String((race.entries?.length || 0) + 1), clubName: "" });
                   }}
                 >
                   <Ionicons name="add" size={16} color={Colors.accent} />
@@ -289,7 +336,6 @@ export default function AdminScreen() {
                   <View style={styles.entryFormContainer}>
                     <TextInput style={styles.miniInput} value={entryForm.lane} onChangeText={(v) => setEntryForm({...entryForm, lane: v})} placeholder="Pista" keyboardType="numeric" placeholderTextColor={Colors.textLight} />
                     <TextInput style={[styles.miniInput, { flex: 1 }]} value={entryForm.clubName} onChangeText={(v) => setEntryForm({...entryForm, clubName: v})} placeholder="Nome do Clube" placeholderTextColor={Colors.textLight} />
-                    <TextInput style={styles.miniInput} value={entryForm.clubAbbr} onChangeText={(v) => setEntryForm({...entryForm, clubAbbr: v})} placeholder="Sigla" placeholderTextColor={Colors.textLight} />
                     <Pressable style={styles.miniAddBtn} onPress={addEntry}>
                       <Ionicons name="checkmark" size={20} color={Colors.white} />
                     </Pressable>
@@ -538,30 +584,36 @@ export default function AdminScreen() {
               {resultEntries.map((entry, idx) => (
                 <View key={entry.id} style={styles.resultRow}>
                   <Text style={styles.resultClub}>P{entry.lane} - {entry.clubName}</Text>
-                  <View style={styles.resultInputs}>
-                    <TextInput
-                      style={[styles.resultInput, { flex: 0.4 }]}
-                      value={entry.position}
-                      onChangeText={(v) => {
-                        const updated = [...resultEntries];
-                        updated[idx] = { ...updated[idx], position: v };
-                        setResultEntries(updated);
-                      }}
-                      placeholder="Pos"
-                      keyboardType="numeric"
-                      placeholderTextColor={Colors.textLight}
-                    />
-                    <TextInput
-                      style={[styles.resultInput, { flex: 1 }]}
-                      value={entry.resultTime}
-                      onChangeText={(v) => {
-                        const updated = [...resultEntries];
-                        updated[idx] = { ...updated[idx], resultTime: v };
-                        setResultEntries(updated);
-                      }}
-                      placeholder="00:00.00"
-                      placeholderTextColor={Colors.textLight}
-                    />
+                  <TextInput
+                    style={styles.resultInput}
+                    value={entry.resultTime}
+                    onChangeText={(v) => {
+                      const updated = [...resultEntries];
+                      updated[idx] = { ...updated[idx], resultTime: formatTimeInput(v) };
+                      setResultEntries(updated);
+                    }}
+                    placeholder="M:SS.ss"
+                    keyboardType="numeric"
+                    placeholderTextColor={Colors.textLight}
+                  />
+                  <View style={styles.statusChips}>
+                    {["FIN", "DNS", "DNF", "DSQ"].map((s) => (
+                      <Pressable
+                        key={s}
+                        onPress={() => {
+                          const updated = [...resultEntries];
+                          if (s === "FIN") {
+                            updated[idx] = { ...updated[idx], status: "FIN" };
+                          } else {
+                            updated[idx] = { ...updated[idx], status: s, resultTime: "" };
+                          }
+                          setResultEntries(updated);
+                        }}
+                        style={[styles.statusChip, entry.status === s && styles.statusChipActive]}
+                      >
+                        <Text style={[styles.statusChipText, entry.status === s && styles.statusChipTextActive]}>{s}</Text>
+                      </Pressable>
+                    ))}
                   </View>
                 </View>
               ))}
@@ -649,4 +701,9 @@ const styles = StyleSheet.create({
   checkbox: { width: 22, height: 22, borderRadius: 6, borderWidth: 2, borderColor: Colors.border, alignItems: "center", justifyContent: "center" },
   checkboxActive: { backgroundColor: Colors.accent, borderColor: Colors.accent },
   checkboxLabel: { fontFamily: "Montserrat_500Medium", fontSize: 13, color: Colors.textPrimary },
+  statusChips: { flexDirection: "row", gap: 6, marginTop: 8 },
+  statusChip: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 12, backgroundColor: Colors.offWhite, borderWidth: 1, borderColor: Colors.border },
+  statusChipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
+  statusChipText: { fontFamily: "Montserrat_500Medium", fontSize: 11, color: Colors.textSecondary },
+  statusChipTextActive: { color: Colors.white },
 });

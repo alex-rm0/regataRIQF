@@ -33,7 +33,6 @@ export const raceEntries = pgTable("race_entries", {
   raceId: varchar("race_id").notNull().references(() => races.id, { onDelete: "cascade" }),
   lane: integer("lane").notNull(),
   clubName: text("club_name").notNull(),
-  clubAbbr: text("club_abbr"),
   crewNames: text("crew_names"),
   resultTime: text("result_time"),
   position: integer("position"),

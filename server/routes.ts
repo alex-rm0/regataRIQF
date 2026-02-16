@@ -127,7 +127,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
               raceId: race.id,
               lane: e.lane,
               clubName: e.clubName,
-              clubAbbr: e.clubAbbr || null,
               crewNames: e.crewNames || null,
               resultTime: e.resultTime || null,
               position: e.position || null,

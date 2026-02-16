@@ -7,7 +7,6 @@ interface RaceEntry {
   id: string;
   lane: number;
   clubName: string;
-  clubAbbr: string | null;
   crewNames: string | null;
   resultTime: string | null;
   position: number | null;
@@ -118,7 +117,7 @@ export function RaceCard({ raceNumber, time, category, gender, boatType, distanc
                   )}
                 </View>
                 <Text style={[styles.clubText, { flex: 1 }]} numberOfLines={1}>
-                  {entry.clubAbbr ? `${entry.clubAbbr} - ` : ""}{entry.clubName}
+                  {entry.clubName}
                 </Text>
                 {showResults && hasResults && (
                   <Text style={[styles.timeResultText, { flex: 0.5, textAlign: "right" as const }]}>
