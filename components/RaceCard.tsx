@@ -8,6 +8,7 @@ interface RaceEntry {
   lane: number;
   clubName: string;
   clubAbbr: string | null;
+  crewNames: string | null;
   resultTime: string | null;
   position: number | null;
   status: string | null;
@@ -33,7 +34,15 @@ function getPositionColor(pos: number): string {
 }
 
 function getGenderLabel(g: string): string {
-  return g === "M" ? "Masculino" : "Feminino";
+  if (g === "M") return "Masculino";
+  if (g === "F") return "Feminino";
+  return g;
+}
+
+function getGenderShort(g: string): string {
+  if (g === "Masculino") return "M";
+  if (g === "Feminino") return "F";
+  return g.charAt(0);
 }
 
 export function RaceCard({ raceNumber, time, category, gender, boatType, distance, phase, entries, showResults }: RaceCardProps) {
@@ -64,8 +73,8 @@ export function RaceCard({ raceNumber, time, category, gender, boatType, distanc
           <View style={styles.categoryBadge}>
             <Text style={styles.categoryText}>{category}</Text>
           </View>
-          <View style={[styles.genderBadge, gender === "F" ? styles.genderF : styles.genderM]}>
-            <Text style={styles.genderText}>{gender}</Text>
+          <View style={[styles.genderBadge, (gender === "F" || gender === "Feminino") ? styles.genderF : styles.genderM]}>
+            <Text style={styles.genderText}>{getGenderShort(gender)}</Text>
           </View>
         </View>
       </View>
@@ -97,24 +106,29 @@ export function RaceCard({ raceNumber, time, category, gender, boatType, distanc
             )}
           </View>
           {sortedEntries.map((entry) => (
-            <View key={entry.id} style={styles.entryRow}>
-              <View style={[styles.entryLane, { flex: 0.3 }]}>
-                {showResults && entry.position ? (
-                  <View style={[styles.positionBadge, { backgroundColor: getPositionColor(entry.position) }]}>
-                    <Text style={styles.positionText}>{entry.position}</Text>
-                  </View>
-                ) : (
-                  <Text style={styles.laneText}>{entry.lane}</Text>
+            <View key={entry.id} style={styles.entryBlock}>
+              <View style={styles.entryRow}>
+                <View style={[styles.entryLane, { flex: 0.3 }]}>
+                  {showResults && entry.position ? (
+                    <View style={[styles.positionBadge, { backgroundColor: getPositionColor(entry.position) }]}>
+                      <Text style={styles.positionText}>{entry.position}</Text>
+                    </View>
+                  ) : (
+                    <Text style={styles.laneText}>{entry.lane}</Text>
+                  )}
+                </View>
+                <Text style={[styles.clubText, { flex: 1 }]} numberOfLines={1}>
+                  {entry.clubAbbr ? `${entry.clubAbbr} - ` : ""}{entry.clubName}
+                </Text>
+                {showResults && hasResults && (
+                  <Text style={[styles.timeResultText, { flex: 0.5, textAlign: "right" as const }]}>
+                    {entry.resultTime || (entry.status === "DNS" ? "DNS" : entry.status === "DNF" ? "DNF" : "-")}
+                  </Text>
                 )}
               </View>
-              <Text style={[styles.clubText, { flex: 1 }]} numberOfLines={1}>
-                {entry.clubAbbr ? `${entry.clubAbbr} - ` : ""}{entry.clubName}
-              </Text>
-              {showResults && hasResults && (
-                <Text style={[styles.timeResultText, { flex: 0.5, textAlign: "right" as const }]}>
-                  {entry.resultTime || (entry.status === "DNS" ? "DNS" : entry.status === "DNF" ? "DNF" : "-")}
-                </Text>
-              )}
+              {entry.crewNames ? (
+                <Text style={styles.crewText} numberOfLines={2}>{entry.crewNames}</Text>
+              ) : null}
             </View>
           ))}
         </View>
@@ -240,10 +254,13 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     letterSpacing: 0.5,
   },
+  entryBlock: {
+    paddingVertical: 4,
+  },
   entryRow: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 6,
+    paddingVertical: 2,
   },
   entryLane: {
     alignItems: "flex-start",
@@ -276,5 +293,12 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat_600SemiBold",
     fontSize: 13,
     color: Colors.primary,
+  },
+  crewText: {
+    fontFamily: "Montserrat_400Regular",
+    fontSize: 11,
+    color: Colors.textLight,
+    marginLeft: 36,
+    marginTop: 1,
   },
 });

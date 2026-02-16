@@ -97,6 +97,11 @@ export async function deleteContactMessage(id: string): Promise<void> {
   await db.delete(contactMessages).where(eq(contactMessages.id, id));
 }
 
+export async function deleteAllRaces(): Promise<void> {
+  await db.delete(raceEntries);
+  await db.delete(races);
+}
+
 export async function seedAdmin() {
   const existing = await getAdmin("admin");
   if (!existing) {

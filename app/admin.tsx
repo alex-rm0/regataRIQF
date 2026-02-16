@@ -27,7 +27,7 @@ export default function AdminScreen() {
   const [loginLoading, setLoginLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
 
-  const [activeTab, setActiveTab] = useState<"races" | "results" | "notifs" | "messages">("races");
+  const [activeTab, setActiveTab] = useState<"races" | "results" | "notifs" | "messages" | "import">("races");
   const [showRaceModal, setShowRaceModal] = useState(false);
   const [showNotifModal, setShowNotifModal] = useState(false);
   const [showResultModal, setShowResultModal] = useState(false);
@@ -35,8 +35,13 @@ export default function AdminScreen() {
 
   const [raceForm, setRaceForm] = useState({
     raceNumber: "", time: "", category: CATEGORIES[0], gender: GENDERS[0],
-    boatType: BOAT_TYPES[0], distance: "1000", phase: PHASES[0],
+    boatType: BOAT_TYPES[0], distance: "500", phase: PHASES[0],
   });
+
+  const [importJson, setImportJson] = useState("");
+  const [importLoading, setImportLoading] = useState(false);
+  const [importResult, setImportResult] = useState<string | null>(null);
+  const [clearOnImport, setClearOnImport] = useState(true);
 
   const [entryForm, setEntryForm] = useState({
     lane: "", clubName: "", clubAbbr: "",
@@ -79,7 +84,7 @@ export default function AdminScreen() {
       phase: raceForm.phase,
     }, authHeaders());
     setShowRaceModal(false);
-    setRaceForm({ raceNumber: "", time: "", category: CATEGORIES[0], gender: GENDERS[0], boatType: BOAT_TYPES[0], distance: "1000", phase: PHASES[0] });
+    setRaceForm({ raceNumber: "", time: "", category: CATEGORIES[0], gender: GENDERS[0], boatType: BOAT_TYPES[0], distance: "500", phase: PHASES[0] });
     queryClient.invalidateQueries({ queryKey: ["/api/races"] });
   };
 
@@ -109,6 +114,32 @@ export default function AdminScreen() {
   const deleteNotif = async (id: string) => {
     await apiRequest("DELETE", `/api/notifications/${id}`, undefined, authHeaders());
     queryClient.invalidateQueries({ queryKey: ["/api/notifications"] });
+  };
+
+  const handleImport = async () => {
+    setImportLoading(true);
+    setImportResult(null);
+    try {
+      const parsed = JSON.parse(importJson);
+      const racesArray = parsed.races || parsed;
+      if (!Array.isArray(racesArray)) {
+        setImportResult("Erro: o JSON deve conter um array 'races' ou ser um array de provas.");
+        setImportLoading(false);
+        return;
+      }
+      const res = await apiRequest("POST", "/api/import", {
+        races: racesArray,
+        clearExisting: clearOnImport,
+      }, authHeaders());
+      const data = await res.json();
+      setImportResult(`Importacao concluida: ${data.racesCreated} provas e ${data.entriesCreated} inscricoes criadas.`);
+      setImportJson("");
+      queryClient.invalidateQueries({ queryKey: ["/api/races"] });
+      if (Platform.OS !== "web") Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    } catch (err: any) {
+      setImportResult(`Erro: ${err.message}`);
+    }
+    setImportLoading(false);
   };
 
   const [resultEntries, setResultEntries] = useState<any[]>([]);
@@ -203,14 +234,14 @@ export default function AdminScreen() {
         </View>
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tabBar}>
-          {(["races", "results", "notifs", "messages"] as const).map((tab) => (
+          {(["races", "results", "notifs", "messages", "import"] as const).map((tab) => (
             <Pressable
               key={tab}
               onPress={() => setActiveTab(tab)}
               style={[styles.tab, activeTab === tab && styles.tabActive]}
             >
               <Text style={[styles.tabText, activeTab === tab && styles.tabTextActive]}>
-                {tab === "races" ? "Provas" : tab === "results" ? "Resultados" : tab === "notifs" ? "Avisos" : "Mensagens"}
+                {tab === "races" ? "Provas" : tab === "results" ? "Resultados" : tab === "notifs" ? "Avisos" : tab === "messages" ? "Mensagens" : "Importar"}
               </Text>
             </Pressable>
           ))}
@@ -326,6 +357,63 @@ export default function AdminScreen() {
             ))}
           </>
         )}
+
+        {activeTab === "import" && (
+          <>
+            <Text style={styles.importTitle}>Importar Programa</Text>
+            <Text style={styles.importDesc}>
+              Cole o JSON com o programa de provas no campo abaixo. O formato deve conter um objeto com a chave "races" (array de provas) ou diretamente um array de provas.
+            </Text>
+
+            <Pressable
+              style={[styles.checkboxRow]}
+              onPress={() => setClearOnImport(!clearOnImport)}
+            >
+              <View style={[styles.checkbox, clearOnImport && styles.checkboxActive]}>
+                {clearOnImport && <Ionicons name="checkmark" size={14} color={Colors.white} />}
+              </View>
+              <Text style={styles.checkboxLabel}>Apagar provas existentes antes de importar</Text>
+            </Pressable>
+
+            <TextInput
+              style={styles.importInput}
+              value={importJson}
+              onChangeText={setImportJson}
+              placeholder='{"races": [...]}'
+              placeholderTextColor={Colors.textLight}
+              multiline
+              textAlignVertical="top"
+            />
+
+            {importResult && (
+              <View style={[styles.importResultBox, importResult.startsWith("Erro") ? styles.importResultError : styles.importResultSuccess]}>
+                <Ionicons
+                  name={importResult.startsWith("Erro") ? "alert-circle" : "checkmark-circle"}
+                  size={18}
+                  color={importResult.startsWith("Erro") ? Colors.danger : Colors.success}
+                />
+                <Text style={[styles.importResultText, importResult.startsWith("Erro") ? { color: Colors.danger } : { color: Colors.success }]}>
+                  {importResult}
+                </Text>
+              </View>
+            )}
+
+            <Pressable
+              style={[styles.addBtn, importLoading && { opacity: 0.6 }]}
+              onPress={handleImport}
+              disabled={importLoading || !importJson.trim()}
+            >
+              {importLoading ? (
+                <ActivityIndicator color={Colors.white} />
+              ) : (
+                <>
+                  <Ionicons name="cloud-upload" size={20} color={Colors.white} />
+                  <Text style={styles.addBtnText}>Importar Programa</Text>
+                </>
+              )}
+            </Pressable>
+          </>
+        )}
       </ScrollView>
 
       <Modal visible={showRaceModal} animationType="slide" transparent>
@@ -362,7 +450,7 @@ export default function AdminScreen() {
               <View style={styles.chipRowWrap}>
                 {GENDERS.map((g) => (
                   <Pressable key={g} onPress={() => setRaceForm({...raceForm, gender: g})} style={[styles.formChip, raceForm.gender === g && styles.formChipActive]}>
-                    <Text style={[styles.formChipText, raceForm.gender === g && styles.formChipTextActive]}>{g === "M" ? "Masculino" : "Feminino"}</Text>
+                    <Text style={[styles.formChipText, raceForm.gender === g && styles.formChipTextActive]}>{g}</Text>
                   </Pressable>
                 ))}
               </View>
@@ -549,4 +637,16 @@ const styles = StyleSheet.create({
   resultClub: { fontFamily: "Montserrat_600SemiBold", fontSize: 13, color: Colors.textPrimary, marginBottom: 6 },
   resultInputs: { flexDirection: "row", gap: 8 },
   resultInput: { backgroundColor: Colors.white, borderRadius: 8, paddingHorizontal: 10, paddingVertical: 8, fontFamily: "Montserrat_400Regular", fontSize: 14, borderWidth: 1, borderColor: Colors.border },
+
+  importTitle: { fontFamily: "Montserrat_700Bold", fontSize: 18, color: Colors.textPrimary, marginBottom: 8 },
+  importDesc: { fontFamily: "Montserrat_400Regular", fontSize: 13, color: Colors.textSecondary, lineHeight: 20, marginBottom: 16 },
+  importInput: { backgroundColor: Colors.white, borderRadius: 12, borderWidth: 1, borderColor: Colors.border, padding: 14, fontFamily: "Montserrat_400Regular", fontSize: 13, color: Colors.textPrimary, minHeight: 200, marginBottom: 16 },
+  importResultBox: { flexDirection: "row", alignItems: "center", gap: 8, padding: 12, borderRadius: 10, marginBottom: 16 },
+  importResultSuccess: { backgroundColor: "rgba(46,204,113,0.1)" },
+  importResultError: { backgroundColor: "rgba(231,76,60,0.1)" },
+  importResultText: { fontFamily: "Montserrat_500Medium", fontSize: 13, flex: 1 },
+  checkboxRow: { flexDirection: "row", alignItems: "center", gap: 10, marginBottom: 16 },
+  checkbox: { width: 22, height: 22, borderRadius: 6, borderWidth: 2, borderColor: Colors.border, alignItems: "center", justifyContent: "center" },
+  checkboxActive: { backgroundColor: Colors.accent, borderColor: Colors.accent },
+  checkboxLabel: { fontFamily: "Montserrat_500Medium", fontSize: 13, color: Colors.textPrimary },
 });

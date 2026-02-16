@@ -5,7 +5,7 @@ import {
   getEntriesByRace, createRaceEntry, updateRaceEntry, deleteRaceEntry,
   getAllNotifications, createNotification, deleteNotification,
   getAllContactMessages, createContactMessage, markMessageRead, deleteContactMessage,
-  getAdmin, seedAdmin,
+  getAdmin, seedAdmin, deleteAllRaces,
 } from "./storage";
 
 function requireAdmin(req: Request, res: Response, next: Function) {
@@ -92,6 +92,57 @@ export async function registerRoutes(app: Express): Promise<Server> {
       await updateRaceEntry(r.id, { resultTime: r.resultTime, position: r.position, status: r.status || "FIN" });
     }
     res.json({ success: true });
+  });
+
+  app.post("/api/import", requireAdmin, async (req: Request, res: Response) => {
+    try {
+      const { races: importRaces, clearExisting } = req.body;
+      if (!Array.isArray(importRaces)) {
+        return res.status(400).json({ message: "Formato inválido: 'races' deve ser um array" });
+      }
+
+      if (clearExisting) {
+        await deleteAllRaces();
+      }
+
+      let racesCreated = 0;
+      let entriesCreated = 0;
+
+      for (const r of importRaces) {
+        const race = await createRace({
+          raceNumber: r.raceNumber,
+          time: r.time || "00:00",
+          category: r.category || "Absoluto",
+          gender: r.gender || "Masculino",
+          boatType: r.boatType || "1x",
+          distance: r.distance || 500,
+          phase: r.phase || "Série",
+          lanes: r.lanes ? String(r.lanes) : null,
+        });
+        racesCreated++;
+
+        if (Array.isArray(r.entries)) {
+          for (const e of r.entries) {
+            await createRaceEntry({
+              raceId: race.id,
+              lane: e.lane,
+              clubName: e.clubName,
+              clubAbbr: e.clubAbbr || null,
+              crewNames: e.crewNames || null,
+              resultTime: e.resultTime || null,
+              position: e.position || null,
+              status: e.status || null,
+            });
+            entriesCreated++;
+          }
+        }
+      }
+
+      res.json({ success: true, racesCreated, entriesCreated });
+    } catch (err: any) {
+      console.error("Import error:", err);
+      res.status(500).json({ message: `Erro na importação: ${err.message}` });
+    }
   });
 
   app.get("/api/notifications", async (_req: Request, res: Response) => {
