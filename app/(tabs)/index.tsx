@@ -36,7 +36,10 @@ export default function HomeScreen() {
           <Pressable
             style={[styles.settingsButton, { top: topInset + 10 }]}
             onPress={() => router.push("/settings")}
-            hitSlop={12}
+            hitSlop={16}
+            testID="settings-button"
+            accessibilityLabel="Definicoes"
+            accessibilityRole="button"
           >
             <Ionicons name="settings-outline" size={22} color="rgba(255,255,255,0.8)" />
           </Pressable>
