@@ -1,11 +1,18 @@
 import { Tabs } from "expo-router";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { Platform, StyleSheet, View } from "react-native";
+import { Platform, StyleSheet, View, Text } from "react-native";
 import { BlurView } from "expo-blur";
 import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import Colors from "@/constants/colors";
 
 export default function TabLayout() {
+  const { data: unreadData } = useQuery<{ count: number }>({
+    queryKey: ["/api/notifications/unread-count"],
+    refetchInterval: 30000,
+  });
+  const unreadCount = unreadData?.count || 0;
+
   return (
     <Tabs
       screenOptions={{
@@ -73,7 +80,29 @@ export default function TabLayout() {
         options={{
           title: "Avisos",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="notifications" size={size} color={color} />
+            <View>
+              <Ionicons name="notifications" size={size} color={color} />
+              {unreadCount > 0 && (
+                <View style={{
+                  position: "absolute" as const,
+                  top: -4,
+                  right: -8,
+                  backgroundColor: Colors.danger,
+                  borderRadius: 9,
+                  minWidth: 18,
+                  height: 18,
+                  alignItems: "center" as const,
+                  justifyContent: "center" as const,
+                  paddingHorizontal: 4,
+                }}>
+                  <Text style={{
+                    fontFamily: "Montserrat_700Bold",
+                    fontSize: 10,
+                    color: "#fff",
+                  }}>{unreadCount > 99 ? "99+" : unreadCount}</Text>
+                </View>
+              )}
+            </View>
           ),
         }}
       />

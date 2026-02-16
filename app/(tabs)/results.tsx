@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import {
-  StyleSheet, Text, View, FlatList, Platform, ActivityIndicator,
+  StyleSheet, Text, View, FlatList, Platform, ActivityIndicator, Pressable,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useQuery } from "@tanstack/react-query";
@@ -17,6 +17,9 @@ export default function ResultsScreen() {
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
   const [genderFilter, setGenderFilter] = useState<string | null>(null);
   const [boatFilter, setBoatFilter] = useState<string | null>(null);
+  const [filtersExpanded, setFiltersExpanded] = useState(false);
+
+  const activeFilterCount = [categoryFilter, genderFilter, boatFilter].filter(Boolean).length;
 
   const { data: races = [], isLoading, refetch } = useQuery<any[]>({
     queryKey: ["/api/races"],
@@ -44,11 +47,29 @@ export default function ResultsScreen() {
         </Text>
       </View>
 
-      <View style={styles.filtersContainer}>
-        <FilterBar label="Escalao" options={CATEGORIES} selected={categoryFilter} onSelect={setCategoryFilter} />
-        <FilterBar label="Sexo" options={GENDERS} selected={genderFilter} onSelect={setGenderFilter} />
-        <FilterBar label="Embarcacao" options={BOAT_TYPES} selected={boatFilter} onSelect={setBoatFilter} />
-      </View>
+      <Pressable 
+        style={styles.filterToggle}
+        onPress={() => setFiltersExpanded(!filtersExpanded)}
+      >
+        <View style={styles.filterToggleLeft}>
+          <Ionicons name="filter" size={16} color={Colors.primary} />
+          <Text style={styles.filterToggleText}>Filtros</Text>
+          {activeFilterCount > 0 && (
+            <View style={styles.filterBadge}>
+              <Text style={styles.filterBadgeText}>{activeFilterCount}</Text>
+            </View>
+          )}
+        </View>
+        <Ionicons name={filtersExpanded ? "chevron-up" : "chevron-down"} size={18} color={Colors.textSecondary} />
+      </Pressable>
+
+      {filtersExpanded && (
+        <View style={styles.filtersContainer}>
+          <FilterBar label="Escalao" options={CATEGORIES} selected={categoryFilter} onSelect={setCategoryFilter} />
+          <FilterBar label="Sexo" options={GENDERS} selected={genderFilter} onSelect={setGenderFilter} />
+          <FilterBar label="Embarcacao" options={BOAT_TYPES} selected={boatFilter} onSelect={setBoatFilter} />
+        </View>
+      )}
 
       {isLoading ? (
         <View style={styles.loadingContainer}>
@@ -112,12 +133,48 @@ const styles = StyleSheet.create({
     color: Colors.textOnDarkMuted,
     marginTop: 2,
   },
-  filtersContainer: {
-    backgroundColor: Colors.offWhite,
-    paddingHorizontal: 16,
-    paddingTop: 14,
-    paddingBottom: 8,
+  filterToggle: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    backgroundColor: Colors.white,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+  },
+  filterToggleLeft: {
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
+  },
+  filterToggleText: {
+    fontFamily: "Montserrat_600SemiBold",
+    fontSize: 14,
+    color: Colors.textPrimary,
+  },
+  filterBadge: {
+    backgroundColor: Colors.accent,
+    borderRadius: 10,
+    minWidth: 20,
+    height: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 6,
+  },
+  filterBadgeText: {
+    fontFamily: "Montserrat_700Bold",
+    fontSize: 11,
+    color: Colors.white,
+  },
+  filtersContainer: {
+    backgroundColor: Colors.white,
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    paddingBottom: 12,
+    gap: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
   },
   loadingContainer: {
     flex: 1,

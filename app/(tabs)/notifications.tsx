@@ -1,11 +1,12 @@
 import React from "react";
 import {
-  StyleSheet, Text, View, FlatList, Platform, ActivityIndicator,
+  StyleSheet, Text, View, FlatList, Platform, ActivityIndicator, Pressable,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useQuery } from "@tanstack/react-query";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/colors";
+import { apiRequest, queryClient } from "@/lib/query-client";
 
 function getTypeConfig(type: string) {
   switch (type) {
@@ -64,8 +65,18 @@ export default function NotificationsScreen() {
           keyExtractor={(item: any) => item.id}
           renderItem={({ item }: any) => {
             const config = getTypeConfig(item.type);
+            const isUnread = !item.read;
             return (
-              <View style={styles.notifCard}>
+              <Pressable
+                style={[styles.notifCard, isUnread && styles.notifCardUnread]}
+                onPress={async () => {
+                  if (isUnread) {
+                    await apiRequest("PUT", `/api/notifications/${item.id}/read`);
+                    queryClient.invalidateQueries({ queryKey: ["/api/notifications"] });
+                    queryClient.invalidateQueries({ queryKey: ["/api/notifications/unread-count"] });
+                  }
+                }}
+              >
                 <View style={[styles.notifIconContainer, { backgroundColor: config.bg }]}>
                   <Ionicons name={config.icon} size={22} color={config.color} />
                 </View>
@@ -77,11 +88,14 @@ export default function NotificationsScreen() {
                     </View>
                   </View>
                   <Text style={styles.notifMessage}>{item.message}</Text>
-                  {item.createdAt && (
-                    <Text style={styles.notifTime}>{formatDate(item.createdAt)}</Text>
-                  )}
+                  <View style={styles.notifBottomRow}>
+                    {item.createdAt && (
+                      <Text style={styles.notifTime}>{formatDate(item.createdAt)}</Text>
+                    )}
+                    {isUnread && <View style={styles.unreadDot} />}
+                  </View>
                 </View>
-              </View>
+              </Pressable>
             );
           }}
           contentContainerStyle={{ paddingTop: 12, paddingBottom: 120 }}
@@ -196,6 +210,21 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat_400Regular",
     fontSize: 11,
     color: Colors.textLight,
+  },
+  notifCardUnread: {
+    borderLeftWidth: 3,
+    borderLeftColor: Colors.accent,
+  },
+  notifBottomRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     marginTop: 6,
+  },
+  unreadDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: Colors.accent,
   },
 });

@@ -80,6 +80,15 @@ export async function deleteNotification(id: string): Promise<void> {
   await db.delete(notifications).where(eq(notifications.id, id));
 }
 
+export async function markNotificationRead(id: string): Promise<void> {
+  await db.update(notifications).set({ read: true }).where(eq(notifications.id, id));
+}
+
+export async function getUnreadNotificationCount(): Promise<number> {
+  const result = await db.select().from(notifications).where(eq(notifications.read, false));
+  return result.length;
+}
+
 export async function getAllContactMessages(): Promise<ContactMessage[]> {
   return db.select().from(contactMessages).orderBy(desc(contactMessages.createdAt));
 }

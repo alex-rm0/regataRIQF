@@ -3,7 +3,7 @@ import { createServer, type Server } from "node:http";
 import {
   getAllRaces, getRace, createRace, updateRace, deleteRace,
   getEntriesByRace, createRaceEntry, updateRaceEntry, deleteRaceEntry,
-  getAllNotifications, createNotification, deleteNotification,
+  getAllNotifications, createNotification, deleteNotification, markNotificationRead, getUnreadNotificationCount,
   getAllContactMessages, createContactMessage, markMessageRead, deleteContactMessage,
   getAdmin, seedAdmin, deleteAllRaces,
 } from "./storage";
@@ -88,9 +88,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.put("/api/races/:id/results", requireAdmin, async (req: Request, res: Response) => {
     const { results } = req.body;
     if (!Array.isArray(results)) return res.status(400).json({ message: "Formato inválido" });
+    
+    const hasAnyTime = results.some((r: any) => r.resultTime);
+    
     for (const r of results) {
       await updateRaceEntry(r.id, { resultTime: r.resultTime, position: r.position, status: r.status || "FIN" });
     }
+    
+    if (hasAnyTime) {
+      const race = await getRace(req.params.id);
+      if (race) {
+        await createNotification({
+          title: `Resultados - Prova #${race.raceNumber}`,
+          message: `Resultados disponíveis para ${race.category} ${race.gender} ${race.boatType} (${race.phase})`,
+          type: "info",
+        });
+      }
+    }
+    
     res.json({ success: true });
   });
 
@@ -144,6 +159,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.get("/api/notifications/unread-count", async (_req: Request, res: Response) => {
+    const count = await getUnreadNotificationCount();
+    res.json({ count });
+  });
+
   app.get("/api/notifications", async (_req: Request, res: Response) => {
     const all = await getAllNotifications();
     res.json(all);
@@ -156,6 +176,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.delete("/api/notifications/:id", requireAdmin, async (req: Request, res: Response) => {
     await deleteNotification(req.params.id);
+    res.json({ success: true });
+  });
+
+  app.put("/api/notifications/:id/read", async (req: Request, res: Response) => {
+    const { id } = req.params;
+    await markNotificationRead(id);
     res.json({ success: true });
   });
 
