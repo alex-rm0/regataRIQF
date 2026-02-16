@@ -18,6 +18,16 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <Pressable
+        style={[styles.settingsButton, { top: topInset + 10 }]}
+        onPress={() => router.push("/settings")}
+        hitSlop={16}
+        testID="settings-button"
+        accessibilityLabel="Definicoes"
+        accessibilityRole="button"
+      >
+        <Ionicons name="settings-outline" size={22} color="rgba(255,255,255,0.8)" />
+      </Pressable>
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={{ paddingBottom: 120 }}
@@ -33,16 +43,6 @@ export default function HomeScreen() {
             colors={["transparent", "rgba(26,58,74,0.85)", Colors.primary]}
             style={styles.heroGradient}
           />
-          <Pressable
-            style={[styles.settingsButton, { top: topInset + 10 }]}
-            onPress={() => router.push("/settings")}
-            hitSlop={16}
-            testID="settings-button"
-            accessibilityLabel="Definicoes"
-            accessibilityRole="button"
-          >
-            <Ionicons name="settings-outline" size={22} color="rgba(255,255,255,0.8)" />
-          </Pressable>
           <View style={[styles.heroContent, { paddingTop: topInset + 10 }]}>
             <Text style={styles.heroEdition}>XLIII</Text>
             <Text style={styles.heroTitle}>Regata Internacional</Text>
