@@ -8,14 +8,12 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
-import { useAdmin } from "@/lib/admin-context";
 import Colors from "@/constants/colors";
 
 const { width } = Dimensions.get("window");
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
-  const { isAdmin } = useAdmin();
   const topInset = Platform.OS === "web" ? 67 : insets.top;
 
   return (
@@ -35,6 +33,13 @@ export default function HomeScreen() {
             colors={["transparent", "rgba(26,58,74,0.85)", Colors.primary]}
             style={styles.heroGradient}
           />
+          <Pressable
+            style={[styles.settingsButton, { top: topInset + 10 }]}
+            onPress={() => router.push("/settings")}
+            hitSlop={12}
+          >
+            <Ionicons name="settings-outline" size={22} color="rgba(255,255,255,0.8)" />
+          </Pressable>
           <View style={[styles.heroContent, { paddingTop: topInset + 10 }]}>
             <Text style={styles.heroEdition}>XLIII</Text>
             <Text style={styles.heroTitle}>Regata Internacional</Text>
@@ -67,38 +72,32 @@ export default function HomeScreen() {
           </View>
 
           <Text style={styles.sectionTitle}>Acesso Rapido</Text>
-          <View style={styles.quickActions}>
-            <QuickAction
-              icon="list"
-              label="Programa"
-              onPress={() => router.push("/(tabs)/program")}
-            />
-            <QuickAction
-              icon="trophy"
-              label="Resultados"
-              onPress={() => router.push("/(tabs)/results")}
-            />
-            <QuickAction
-              icon="notifications"
-              label="Avisos"
-              onPress={() => router.push("/(tabs)/notifications")}
-            />
-            <QuickAction
-              icon="mail"
-              label="Contacto"
-              onPress={() => router.push("/(tabs)/contact")}
-            />
+          <View style={styles.quickActionsGrid}>
+            <View style={styles.quickActionsRow}>
+              <QuickAction
+                icon="list"
+                label="Programa"
+                onPress={() => router.push("/(tabs)/program")}
+              />
+              <QuickAction
+                icon="trophy"
+                label="Resultados"
+                onPress={() => router.push("/(tabs)/results")}
+              />
+            </View>
+            <View style={styles.quickActionsRow}>
+              <QuickAction
+                icon="notifications"
+                label="Avisos"
+                onPress={() => router.push("/(tabs)/notifications")}
+              />
+              <QuickAction
+                icon="mail"
+                label="Contacto"
+                onPress={() => router.push("/(tabs)/contact")}
+              />
+            </View>
           </View>
-
-          <Pressable
-            style={({ pressed }) => [styles.adminButton, pressed && { opacity: 0.8 }]}
-            onPress={() => router.push("/admin")}
-          >
-            <Ionicons name="settings" size={18} color={Colors.textOnDarkMuted} />
-            <Text style={styles.adminButtonText}>
-              {isAdmin ? "Painel Admin" : "Acesso Admin"}
-            </Text>
-          </Pressable>
 
           <View style={styles.orgSection}>
             <Text style={styles.orgTitle}>Organizacao</Text>
@@ -299,16 +298,30 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.textPrimary,
   },
-  quickActions: {
-    flexDirection: "row",
+  settingsButton: {
+    position: "absolute",
+    right: 16,
+    zIndex: 10,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: "rgba(0,0,0,0.25)",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  quickActionsGrid: {
     gap: 10,
     marginBottom: 24,
+  },
+  quickActionsRow: {
+    flexDirection: "row",
+    gap: 10,
   },
   quickAction: {
     flex: 1,
     backgroundColor: Colors.white,
     borderRadius: 14,
-    padding: 14,
+    padding: 16,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
@@ -329,21 +342,6 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat_600SemiBold",
     fontSize: 11,
     color: Colors.textPrimary,
-  },
-  adminButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 8,
-    backgroundColor: Colors.primaryDark,
-    borderRadius: 12,
-    paddingVertical: 14,
-    marginBottom: 24,
-  },
-  adminButtonText: {
-    fontFamily: "Montserrat_600SemiBold",
-    fontSize: 14,
-    color: Colors.textOnDarkMuted,
   },
   orgSection: {
     alignItems: "center",
