@@ -42,8 +42,12 @@ Preferred communication style: Simple, everyday language.
 - `POST /api/races/:id/entries` — Add race entry (admin)
 - `PUT /api/entries/:id` — Update entry (admin)
 - `DELETE /api/entries/:id` — Delete entry (admin)
-- `GET /api/notifications` — List notifications
+- `POST /api/import` — Bulk import races from JSON (admin)
+- `PUT /api/races/:id/results` — Save results for a race, auto-creates notification (admin)
+- `GET /api/notifications` — List notifications (includes read status)
+- `GET /api/notifications/unread-count` — Get count of unread notifications
 - `POST /api/notifications` — Create notification (admin)
+- `PUT /api/notifications/:id/read` — Mark notification as read
 - `DELETE /api/notifications/:id` — Delete notification (admin)
 - `POST /api/contacts` — Submit contact message
 - `GET /api/contacts` — List messages (admin)
