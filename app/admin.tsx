@@ -54,7 +54,7 @@ export default function AdminScreen() {
   });
 
   const [scheduleForm, setScheduleForm] = useState({
-    time: "", title: "", icon: "time", sortOrder: "0",
+    time: "", title: "", icon: "time",
   });
 
   const { data: races = [], refetch: refetchRaces } = useQuery<any[]>({ queryKey: ["/api/races"] });
@@ -227,6 +227,15 @@ export default function AdminScreen() {
     if (Platform.OS !== "web") Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
   };
 
+  const formatScheduleTime = (raw: string): string => {
+    const digits = raw.replace(/[^0-9]/g, "");
+    if (digits.length === 0) return "";
+    if (digits.length <= 2) return digits;
+    const hours = digits.slice(0, 2);
+    const mins = digits.slice(2, 4);
+    return `${hours}:${mins}`;
+  };
+
   const openScheduleModal = (item?: any) => {
     if (item) {
       setEditingSchedule(item);
@@ -234,21 +243,25 @@ export default function AdminScreen() {
         time: item.time,
         title: item.title,
         icon: item.icon,
-        sortOrder: String(item.sortOrder),
       });
     } else {
       setEditingSchedule(null);
-      setScheduleForm({ time: "", title: "", icon: "time", sortOrder: String(scheduleItems.length) });
+      setScheduleForm({ time: "", title: "", icon: "time" });
     }
     setShowScheduleModal(true);
   };
 
   const saveScheduleEntry = async () => {
+    const timeRegex = /^\d{2}:\d{2}$/;
+    if (!timeRegex.test(scheduleForm.time)) {
+      Alert.alert("Formato invalido", "A hora deve estar no formato HH:MM (ex: 09:30)");
+      return;
+    }
     const payload = {
       time: scheduleForm.time,
       title: scheduleForm.title,
       icon: scheduleForm.icon,
-      sortOrder: parseInt(scheduleForm.sortOrder) || 0,
+      sortOrder: 0,
     };
     if (editingSchedule) {
       await apiRequest("PUT", `/api/schedule/${editingSchedule.id}`, payload, authHeaders());
@@ -654,16 +667,9 @@ export default function AdminScreen() {
               </Pressable>
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={styles.formRow}>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.formLabel}>Hora</Text>
-                  <TextInput style={styles.formInput} value={scheduleForm.time} onChangeText={(v) => setScheduleForm({...scheduleForm, time: v})} placeholder="09:30" placeholderTextColor={Colors.textLight} />
-                </View>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.formLabel}>Ordem</Text>
-                  <TextInput style={styles.formInput} value={scheduleForm.sortOrder} onChangeText={(v) => setScheduleForm({...scheduleForm, sortOrder: v})} keyboardType="numeric" placeholder="0" placeholderTextColor={Colors.textLight} />
-                </View>
-              </View>
+              <Text style={styles.formLabel}>Hora</Text>
+              <TextInput style={styles.formInput} value={scheduleForm.time} onChangeText={(v) => setScheduleForm({...scheduleForm, time: formatScheduleTime(v)})} placeholder="09:30" keyboardType="numeric" placeholderTextColor={Colors.textLight} maxLength={5} />
+              <Text style={{ fontFamily: "Montserrat_400Regular", fontSize: 11, color: Colors.textLight, marginTop: 4 }}>Formato HH:MM — ordenado automaticamente</Text>
 
               <Text style={styles.formLabel}>Titulo</Text>
               <TextInput style={styles.formInput} value={scheduleForm.title} onChangeText={(v) => setScheduleForm({...scheduleForm, title: v})} placeholder="Ex: Remo Jovem" placeholderTextColor={Colors.textLight} />

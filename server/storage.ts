@@ -108,7 +108,7 @@ export async function deleteContactMessage(id: string): Promise<void> {
 }
 
 export async function getAllScheduleEntries(): Promise<ScheduleEntry[]> {
-  return db.select().from(scheduleEntries).orderBy(asc(scheduleEntries.sortOrder));
+  return db.select().from(scheduleEntries).orderBy(asc(scheduleEntries.time));
 }
 
 export async function createScheduleEntry(data: InsertScheduleEntry): Promise<ScheduleEntry> {
