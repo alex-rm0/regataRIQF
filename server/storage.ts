@@ -2,11 +2,12 @@ import { eq, desc, asc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/node-postgres";
 import pg from "pg";
 import {
-  admins, races, raceEntries, notifications, contactMessages,
+  admins, races, raceEntries, notifications, contactMessages, scheduleEntries,
   type Admin, type InsertAdmin,
   type Race, type InsertRace,
   type RaceEntry, type InsertRaceEntry,
   type Notification, type InsertNotification,
+  type ScheduleEntry, type InsertScheduleEntry,
   type ContactMessage, type InsertContactMessage,
 } from "@shared/schema";
 
@@ -106,6 +107,24 @@ export async function deleteContactMessage(id: string): Promise<void> {
   await db.delete(contactMessages).where(eq(contactMessages.id, id));
 }
 
+export async function getAllScheduleEntries(): Promise<ScheduleEntry[]> {
+  return db.select().from(scheduleEntries).orderBy(asc(scheduleEntries.sortOrder));
+}
+
+export async function createScheduleEntry(data: InsertScheduleEntry): Promise<ScheduleEntry> {
+  const result = await db.insert(scheduleEntries).values(data).returning();
+  return result[0];
+}
+
+export async function updateScheduleEntry(id: string, data: Partial<InsertScheduleEntry>): Promise<ScheduleEntry | undefined> {
+  const result = await db.update(scheduleEntries).set(data).where(eq(scheduleEntries.id, id)).returning();
+  return result[0];
+}
+
+export async function deleteScheduleEntry(id: string): Promise<void> {
+  await db.delete(scheduleEntries).where(eq(scheduleEntries.id, id));
+}
+
 export async function deleteAllRaces(): Promise<void> {
   await db.delete(raceEntries);
   await db.delete(races);
@@ -116,5 +135,15 @@ export async function seedAdmin() {
   if (!existing) {
     await createAdmin({ username: "admin", password: "regata2026" });
     console.log("Default admin created: admin/regata2026");
+  }
+}
+
+export async function seedSchedule() {
+  const existing = await getAllScheduleEntries();
+  if (existing.length === 0) {
+    await createScheduleEntry({ time: "09:30", title: "Remo Jovem", icon: "boat", sortOrder: 0 });
+    await createScheduleEntry({ time: "16:00", title: "Finais", icon: "trophy", sortOrder: 1 });
+    await createScheduleEntry({ time: "17:15", title: "Memorial José Matos", icon: "ribbon", sortOrder: 2 });
+    console.log("Default schedule entries created");
   }
 }

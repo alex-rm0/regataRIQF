@@ -1,10 +1,11 @@
 import React from "react";
 import {
   StyleSheet, Text, View, ScrollView, Pressable,
-  Platform, Dimensions, ImageBackground,
+  Platform, Dimensions, ActivityIndicator,
 } from "react-native";
 import { Image } from "expo-image";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useQuery } from "@tanstack/react-query";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
@@ -15,6 +16,10 @@ const { width } = Dimensions.get("window");
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const topInset = Platform.OS === "web" ? 67 : insets.top;
+
+  const { data: schedule = [] } = useQuery<any[]>({
+    queryKey: ["/api/schedule"],
+  });
 
   return (
     <View style={styles.container}>
@@ -67,11 +72,16 @@ export default function HomeScreen() {
 
           <Text style={styles.sectionTitle}>Programa do Dia</Text>
           <View style={styles.scheduleContainer}>
-            <ScheduleItem time="09:30" title="Remo Jovem" icon="boat" />
-            <View style={styles.scheduleLine} />
-            <ScheduleItem time="16:00" title="Finais" icon="trophy" />
-            <View style={styles.scheduleLine} />
-            <ScheduleItem time="17:15" title="Memorial Jose Matos" icon="ribbon" />
+            {schedule.length === 0 ? (
+              <Text style={styles.scheduleEmpty}>A carregar programa...</Text>
+            ) : (
+              schedule.map((item: any, idx: number) => (
+                <React.Fragment key={item.id}>
+                  {idx > 0 && <View style={styles.scheduleLine} />}
+                  <ScheduleItem time={item.time} title={item.title} icon={item.icon} />
+                </React.Fragment>
+              ))
+            )}
           </View>
 
           <Text style={styles.sectionTitle}>Acesso Rapido</Text>
@@ -287,6 +297,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.border,
     marginLeft: 17,
     marginVertical: 2,
+  },
+  scheduleEmpty: {
+    fontFamily: "Montserrat_400Regular",
+    fontSize: 13,
+    color: Colors.textLight,
+    textAlign: "center",
+    paddingVertical: 8,
   },
   scheduleInfo: {
     flex: 1,

@@ -13,7 +13,7 @@ import { apiRequest } from "@/lib/query-client";
 import { queryClient } from "@/lib/query-client";
 import Colors from "@/constants/colors";
 import {
-  CATEGORIES, GENDERS, BOAT_TYPES, PHASES,
+  CATEGORIES, GENDERS, BOAT_TYPES, PHASES, SCHEDULE_ICONS,
 } from "@shared/schema";
 
 export default function AdminScreen() {
@@ -27,11 +27,13 @@ export default function AdminScreen() {
   const [loginLoading, setLoginLoading] = useState(false);
   const [loginError, setLoginError] = useState("");
 
-  const [activeTab, setActiveTab] = useState<"races" | "results" | "notifs" | "messages" | "import">("races");
+  const [activeTab, setActiveTab] = useState<"races" | "results" | "notifs" | "messages" | "import" | "schedule">("races");
   const [showRaceModal, setShowRaceModal] = useState(false);
   const [showNotifModal, setShowNotifModal] = useState(false);
   const [showResultModal, setShowResultModal] = useState(false);
+  const [showScheduleModal, setShowScheduleModal] = useState(false);
   const [selectedRace, setSelectedRace] = useState<any>(null);
+  const [editingSchedule, setEditingSchedule] = useState<any>(null);
 
   const [raceForm, setRaceForm] = useState({
     raceNumber: "", time: "", category: CATEGORIES[0], gender: GENDERS[0],
@@ -51,8 +53,13 @@ export default function AdminScreen() {
     title: "", message: "", type: "info",
   });
 
+  const [scheduleForm, setScheduleForm] = useState({
+    time: "", title: "", icon: "time", sortOrder: "0",
+  });
+
   const { data: races = [], refetch: refetchRaces } = useQuery<any[]>({ queryKey: ["/api/races"] });
   const { data: notifications = [], refetch: refetchNotifs } = useQuery<any[]>({ queryKey: ["/api/notifications"] });
+  const { data: scheduleItems = [] } = useQuery<any[]>({ queryKey: ["/api/schedule"] });
   const { data: messages = [] } = useQuery<any[]>({
     queryKey: ["/api/contacts"],
     enabled: isAdmin,
@@ -220,6 +227,44 @@ export default function AdminScreen() {
     if (Platform.OS !== "web") Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
   };
 
+  const openScheduleModal = (item?: any) => {
+    if (item) {
+      setEditingSchedule(item);
+      setScheduleForm({
+        time: item.time,
+        title: item.title,
+        icon: item.icon,
+        sortOrder: String(item.sortOrder),
+      });
+    } else {
+      setEditingSchedule(null);
+      setScheduleForm({ time: "", title: "", icon: "time", sortOrder: String(scheduleItems.length) });
+    }
+    setShowScheduleModal(true);
+  };
+
+  const saveScheduleEntry = async () => {
+    const payload = {
+      time: scheduleForm.time,
+      title: scheduleForm.title,
+      icon: scheduleForm.icon,
+      sortOrder: parseInt(scheduleForm.sortOrder) || 0,
+    };
+    if (editingSchedule) {
+      await apiRequest("PUT", `/api/schedule/${editingSchedule.id}`, payload, authHeaders());
+    } else {
+      await apiRequest("POST", "/api/schedule", payload, authHeaders());
+    }
+    setShowScheduleModal(false);
+    queryClient.invalidateQueries({ queryKey: ["/api/schedule"] });
+    if (Platform.OS !== "web") Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+  };
+
+  const deleteScheduleEntry = async (id: string) => {
+    await apiRequest("DELETE", `/api/schedule/${id}`, undefined, authHeaders());
+    queryClient.invalidateQueries({ queryKey: ["/api/schedule"] });
+  };
+
   if (!isAdmin) {
     return (
       <View style={styles.container}>
@@ -281,14 +326,14 @@ export default function AdminScreen() {
         </View>
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tabBar}>
-          {(["races", "results", "notifs", "messages", "import"] as const).map((tab) => (
+          {(["races", "results", "notifs", "schedule", "messages", "import"] as const).map((tab) => (
             <Pressable
               key={tab}
               onPress={() => setActiveTab(tab)}
               style={[styles.tab, activeTab === tab && styles.tabActive]}
             >
               <Text style={[styles.tabText, activeTab === tab && styles.tabTextActive]}>
-                {tab === "races" ? "Provas" : tab === "results" ? "Resultados" : tab === "notifs" ? "Avisos" : tab === "messages" ? "Mensagens" : "Importar"}
+                {tab === "races" ? "Provas" : tab === "results" ? "Resultados" : tab === "notifs" ? "Avisos" : tab === "schedule" ? "Programa" : tab === "messages" ? "Mensagens" : "Importar"}
               </Text>
             </Pressable>
           ))}
@@ -384,6 +429,39 @@ export default function AdminScreen() {
                   </Pressable>
                 </View>
                 <Text style={styles.adminCardSub}>{n.message}</Text>
+              </View>
+            ))}
+          </>
+        )}
+
+        {activeTab === "schedule" && (
+          <>
+            <Pressable style={styles.addBtn} onPress={() => openScheduleModal()}>
+              <Ionicons name="add-circle" size={20} color={Colors.white} />
+              <Text style={styles.addBtnText}>Adicionar Entrada</Text>
+            </Pressable>
+
+            {scheduleItems.map((item: any) => (
+              <View key={item.id} style={styles.adminCard}>
+                <View style={styles.adminCardHeader}>
+                  <View style={{ flexDirection: "row", alignItems: "center", gap: 10, flex: 1 }}>
+                    <View style={styles.scheduleIconPreview}>
+                      <Ionicons name={item.icon as any} size={18} color={Colors.accent} />
+                    </View>
+                    <View style={{ flex: 1 }}>
+                      <Text style={styles.adminCardTitle}>{item.time} - {item.title}</Text>
+                      <Text style={styles.adminCardSub}>Ordem: {item.sortOrder}</Text>
+                    </View>
+                  </View>
+                  <View style={{ flexDirection: "row", gap: 8 }}>
+                    <Pressable onPress={() => openScheduleModal(item)}>
+                      <Ionicons name="pencil" size={18} color={Colors.primaryLight} />
+                    </Pressable>
+                    <Pressable onPress={() => deleteScheduleEntry(item.id)}>
+                      <Ionicons name="trash" size={18} color={Colors.danger} />
+                    </Pressable>
+                  </View>
+                </View>
               </View>
             ))}
           </>
@@ -566,6 +644,51 @@ export default function AdminScreen() {
         </View>
       </Modal>
 
+      <Modal visible={showScheduleModal} animationType="slide" transparent>
+        <View style={styles.modalOverlay}>
+          <View style={[styles.modalContent, { paddingBottom: bottomInset + 16 }]}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>{editingSchedule ? "Editar Entrada" : "Nova Entrada"}</Text>
+              <Pressable onPress={() => setShowScheduleModal(false)}>
+                <Ionicons name="close" size={24} color={Colors.textPrimary} />
+              </Pressable>
+            </View>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={styles.formRow}>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.formLabel}>Hora</Text>
+                  <TextInput style={styles.formInput} value={scheduleForm.time} onChangeText={(v) => setScheduleForm({...scheduleForm, time: v})} placeholder="09:30" placeholderTextColor={Colors.textLight} />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.formLabel}>Ordem</Text>
+                  <TextInput style={styles.formInput} value={scheduleForm.sortOrder} onChangeText={(v) => setScheduleForm({...scheduleForm, sortOrder: v})} keyboardType="numeric" placeholder="0" placeholderTextColor={Colors.textLight} />
+                </View>
+              </View>
+
+              <Text style={styles.formLabel}>Titulo</Text>
+              <TextInput style={styles.formInput} value={scheduleForm.title} onChangeText={(v) => setScheduleForm({...scheduleForm, title: v})} placeholder="Ex: Remo Jovem" placeholderTextColor={Colors.textLight} />
+
+              <Text style={styles.formLabel}>Icone</Text>
+              <View style={styles.iconGrid}>
+                {SCHEDULE_ICONS.map((ic) => (
+                  <Pressable
+                    key={ic}
+                    onPress={() => setScheduleForm({...scheduleForm, icon: ic})}
+                    style={[styles.iconOption, scheduleForm.icon === ic && styles.iconOptionActive]}
+                  >
+                    <Ionicons name={ic as any} size={22} color={scheduleForm.icon === ic ? Colors.white : Colors.textSecondary} />
+                  </Pressable>
+                ))}
+              </View>
+
+              <Pressable style={styles.modalSubmitBtn} onPress={saveScheduleEntry}>
+                <Text style={styles.modalSubmitText}>{editingSchedule ? "Guardar" : "Criar Entrada"}</Text>
+              </Pressable>
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
+
       <Modal visible={showResultModal} animationType="slide" transparent>
         <View style={styles.modalOverlay}>
           <View style={[styles.modalContent, { paddingBottom: bottomInset + 16 }]}>
@@ -706,4 +829,8 @@ const styles = StyleSheet.create({
   statusChipActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
   statusChipText: { fontFamily: "Montserrat_500Medium", fontSize: 11, color: Colors.textSecondary },
   statusChipTextActive: { color: Colors.white },
+  scheduleIconPreview: { width: 36, height: 36, borderRadius: 18, backgroundColor: "rgba(212,168,67,0.12)", alignItems: "center", justifyContent: "center" },
+  iconGrid: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 4, marginBottom: 8 },
+  iconOption: { width: 44, height: 44, borderRadius: 12, backgroundColor: Colors.offWhite, borderWidth: 1, borderColor: Colors.border, alignItems: "center", justifyContent: "center" },
+  iconOptionActive: { backgroundColor: Colors.accent, borderColor: Colors.accent },
 });

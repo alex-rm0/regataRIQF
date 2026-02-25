@@ -50,6 +50,23 @@ export const notifications = pgTable("notifications", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+export const SCHEDULE_ICONS = [
+  "boat", "trophy", "ribbon", "time", "flag", "medal", "gift",
+  "restaurant", "musical-notes", "people", "megaphone", "star",
+  "podium", "water", "fitness", "bicycle",
+] as const;
+
+export const scheduleEntries = pgTable("schedule_entries", {
+  id: varchar("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  time: text("time").notNull(),
+  title: text("title").notNull(),
+  icon: text("icon").notNull().default("time"),
+  sortOrder: integer("sort_order").notNull().default(0),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 export const contactMessages = pgTable("contact_messages", {
   id: varchar("id")
     .primaryKey()
@@ -82,6 +99,11 @@ export const insertNotificationSchema = createInsertSchema(notifications).omit({
   createdAt: true,
 });
 
+export const insertScheduleEntrySchema = createInsertSchema(scheduleEntries).omit({
+  id: true,
+  createdAt: true,
+});
+
 export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({
   id: true,
   read: true,
@@ -96,6 +118,8 @@ export type RaceEntry = typeof raceEntries.$inferSelect;
 export type InsertRaceEntry = z.infer<typeof insertRaceEntrySchema>;
 export type Notification = typeof notifications.$inferSelect;
 export type InsertNotification = z.infer<typeof insertNotificationSchema>;
+export type ScheduleEntry = typeof scheduleEntries.$inferSelect;
+export type InsertScheduleEntry = z.infer<typeof insertScheduleEntrySchema>;
 export type ContactMessage = typeof contactMessages.$inferSelect;
 export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
 

@@ -5,7 +5,8 @@ import {
   getEntriesByRace, createRaceEntry, updateRaceEntry, deleteRaceEntry,
   getAllNotifications, createNotification, deleteNotification, markNotificationRead, getUnreadNotificationCount,
   getAllContactMessages, createContactMessage, markMessageRead, deleteContactMessage,
-  getAdmin, seedAdmin, deleteAllRaces,
+  getAllScheduleEntries, createScheduleEntry, updateScheduleEntry, deleteScheduleEntry,
+  getAdmin, seedAdmin, seedSchedule, deleteAllRaces,
 } from "./storage";
 
 function requireAdmin(req: Request, res: Response, next: Function) {
@@ -25,6 +26,7 @@ function requireAdmin(req: Request, res: Response, next: Function) {
 
 export async function registerRoutes(app: Express): Promise<Server> {
   await seedAdmin();
+  await seedSchedule();
 
   app.post("/api/admin/login", async (req: Request, res: Response) => {
     const { username, password } = req.body;
@@ -202,6 +204,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.delete("/api/contacts/:id", requireAdmin, async (req: Request, res: Response) => {
     await deleteContactMessage(req.params.id);
+    res.json({ success: true });
+  });
+
+  app.get("/api/schedule", async (_req: Request, res: Response) => {
+    const entries = await getAllScheduleEntries();
+    res.json(entries);
+  });
+
+  app.post("/api/schedule", requireAdmin, async (req: Request, res: Response) => {
+    const entry = await createScheduleEntry(req.body);
+    res.status(201).json(entry);
+  });
+
+  app.put("/api/schedule/:id", requireAdmin, async (req: Request, res: Response) => {
+    const entry = await updateScheduleEntry(req.params.id, req.body);
+    if (!entry) return res.status(404).json({ message: "Entrada não encontrada" });
+    res.json(entry);
+  });
+
+  app.delete("/api/schedule/:id", requireAdmin, async (req: Request, res: Response) => {
+    await deleteScheduleEntry(req.params.id);
     res.json({ success: true });
   });
 

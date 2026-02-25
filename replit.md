@@ -1,8 +1,8 @@
-# Regata QF 2026
+# RIQF (Regata Internacional Queima das Fitas)
 
 ## Overview
 
-This is a mobile-first application for the **XLIII Regata Internacional Queima das Fitas 2026**, a rowing regatta event. The app provides event information, race programs, live results, notifications, and a contact form for attendees. It also includes an admin panel for managing races, results, notifications, and messages.
+This is a mobile-first application named **RIQF** for the **XLIII Regata Internacional Queima das Fitas 2026**, a rowing regatta event. The app provides event information, race programs, live results, notifications, and a contact form for attendees. It also includes an admin panel for managing races, results, notifications, schedule entries, and messages.
 
 The project uses a monorepo structure with an **Expo/React Native** frontend (supporting iOS, Android, and Web) and an **Express.js** backend, sharing a common schema definition via Drizzle ORM connected to **PostgreSQL**.
 
@@ -49,6 +49,10 @@ Preferred communication style: Simple, everyday language.
 - `POST /api/notifications` — Create notification (admin)
 - `PUT /api/notifications/:id/read` — Mark notification as read
 - `DELETE /api/notifications/:id` — Delete notification (admin)
+- `GET /api/schedule` — List schedule entries (sorted by sortOrder)
+- `POST /api/schedule` — Create schedule entry (admin)
+- `PUT /api/schedule/:id` — Update schedule entry (admin)
+- `DELETE /api/schedule/:id` — Delete schedule entry (admin)
 - `POST /api/contacts` — Submit contact message
 - `GET /api/contacts` — List messages (admin)
 
@@ -57,8 +61,9 @@ Preferred communication style: Simple, everyday language.
   - `admins` — id, username, password (plaintext — basic setup)
   - `races` — id, raceNumber, time, category, gender, boatType, distance, phase, lanes, createdAt
   - `race_entries` — id, raceId (FK to races with cascade delete), lane, clubName, clubAbbr, crewNames, resultTime, position, status
-  - `notifications` — id, title, message, type, createdAt
-  - `contact_messages` — id, name, email, phone, subject, message, read, createdAt (inferred from pattern)
+  - `notifications` — id, title, message, type, read, createdAt
+  - `schedule_entries` — id, time, title, icon, sortOrder, createdAt
+  - `contact_messages` — id, name, email, phone, subject, message, read, createdAt
 - **Migrations**: Drizzle Kit configured in `drizzle.config.ts`, migrations output to `./migrations/`
 - **Push command**: `npm run db:push` to sync schema to database
 - Domain constants exported from schema: `CATEGORIES`, `GENDERS`, `BOAT_TYPES`, `PHASES`
