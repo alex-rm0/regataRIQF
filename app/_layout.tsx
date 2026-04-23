@@ -15,6 +15,7 @@ import {
   Montserrat_700Bold,
   Montserrat_800ExtraBold,
 } from "@expo-google-fonts/montserrat";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 
 SplashScreen.preventAutoHideAsync();
@@ -30,21 +31,23 @@ function RootLayoutNav() {
 }
 
 export default function RootLayout() {
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     Montserrat_400Regular,
     Montserrat_500Medium,
     Montserrat_600SemiBold,
     Montserrat_700Bold,
     Montserrat_800ExtraBold,
+    ...Ionicons.font,
+    ...MaterialCommunityIcons.font,
   });
 
   useEffect(() => {
-    if (fontsLoaded) {
+    if (fontsLoaded || fontError) {
       SplashScreen.hideAsync();
     }
-  }, [fontsLoaded]);
+  }, [fontsLoaded, fontError]);
 
-  if (!fontsLoaded) return null;
+  if (!fontsLoaded && !fontError) return null;
 
   return (
     <ErrorBoundary>

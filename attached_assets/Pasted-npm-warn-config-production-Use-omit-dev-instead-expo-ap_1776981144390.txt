@@ -1,0 +1,80 @@
+npm warn config production Use `--omit=dev` instead.
+> expo-app@1.0.0 server:build
+> esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=server_dist
+  server_dist/index.js  19.8kb
+⚡ Done in 8ms
+Starting Container
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+Node.js v22.22.2
+npm warn config production Use `--omit=dev` instead.
+> expo-app@1.0.0 server:prod
+node:internal/modules/cjs/loader:1386
+  throw err;
+  ^
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+Starting Container
+npm warn config production Use `--omit=dev` instead.
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+}
+Error: Cannot find module '/app/server_dist/index.js'
+Node.js v22.22.2
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+npm warn config production Use `--omit=dev` instead.
+> expo-app@1.0.0 server:prod
+> NODE_ENV=production node server_dist/index.js
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+node:internal/modules/cjs/loader:1386
+Node.js v22.22.2
+  throw err;
+  ^
+Error: Cannot find module '/app/server_dist/index.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+  code: 'MODULE_NOT_FOUND',
+> expo-app@1.0.0 server:prod
+  requireStack: []
+> NODE_ENV=production node server_dist/index.js
+node:internal/modules/cjs/loader:1386
+}
+Node.js v22.22.2
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at node:internal/main/run_main_module:36:49 {
+  throw err;
+npm warn config production Use `--omit=dev` instead.
+  ^
+Error: Cannot find module '/app/server_dist/index.js'
+  throw err;
+    at Function._load (node:internal/modules/cjs/loader:1192:37)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+npm warn config production Use `--omit=dev` instead.
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+npm warn config production Use `--omit=dev` instead.
+    at node:internal/main/run_main_module:36:49 {
+  throw err;
+> expo-app@1.0.0 server:prod
+  code: 'MODULE_NOT_FOUND',
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+npm warn config production Use `--omit=dev` instead.
