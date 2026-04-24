@@ -291,7 +291,7 @@ export default function AdminScreen() {
           <View style={styles.loginIcon}>
             <Ionicons name="lock-closed" size={48} color={Colors.accent} />
           </View>
-          <Text style={styles.loginSubtitle}>Acesso reservado a organizacao</Text>
+          <Text style={styles.loginSubtitle}>Acesso reservado a organização</Text>
           {loginError ? <Text style={styles.loginError}>{loginError}</Text> : null}
           <TextInput
             style={styles.loginInput}

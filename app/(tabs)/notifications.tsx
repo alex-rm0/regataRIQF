@@ -57,7 +57,7 @@ export default function NotificationsScreen() {
           <Ionicons name="notifications-off-outline" size={48} color={Colors.textLight} />
           <Text style={styles.emptyTitle}>Sem avisos</Text>
           <Text style={styles.emptyText}>
-            Quando a organizacao publicar avisos, eles aparecerao aqui.
+            Quando a organização publicar avisos, eles aparecerao aqui.
           </Text>
         </View>
       ) : (

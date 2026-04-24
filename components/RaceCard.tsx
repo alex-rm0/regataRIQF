@@ -116,18 +116,22 @@ export function RaceCard({ raceNumber, time, category, gender, boatType, distanc
                     <Text style={styles.laneText}>{entry.lane}</Text>
                   )}
                 </View>
-                <Text style={[styles.clubText, { flex: 1 }]} numberOfLines={1}>
-                  {entry.clubName}
-                </Text>
+                <View style={[styles.entryMainInfo, { flex: 1 }]}>
+                  {entry.crewNames ? (
+                    <Text style={styles.crewPrimaryText} numberOfLines={2}>
+                      {entry.crewNames}
+                    </Text>
+                  ) : null}
+                  <Text style={styles.clubSecondaryText} numberOfLines={1}>
+                    {entry.clubName}
+                  </Text>
+                </View>
                 {showResults && hasResults && (
                   <Text style={[styles.timeResultText, { flex: 0.5, textAlign: "right" as const }]}>
                     {entry.resultTime || (entry.status === "DNS" ? "DNS" : entry.status === "DNF" ? "DNF" : "-")}
                   </Text>
                 )}
               </View>
-              {entry.crewNames ? (
-                <Text style={styles.crewText} numberOfLines={2}>{entry.crewNames}</Text>
-              ) : null}
             </View>
           ))}
         </View>
@@ -258,11 +262,16 @@ const styles = StyleSheet.create({
   },
   entryRow: {
     flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 2,
+    alignItems: "flex-start",
+    paddingVertical: 4,
   },
   entryLane: {
     alignItems: "flex-start",
+    paddingTop: 2,
+  },
+  entryMainInfo: {
+    gap: 2,
+    paddingRight: 8,
   },
   laneText: {
     fontFamily: "Montserrat_600SemiBold",
@@ -271,10 +280,16 @@ const styles = StyleSheet.create({
     width: 24,
     textAlign: "center",
   },
-  clubText: {
-    fontFamily: "Montserrat_500Medium",
-    fontSize: 13,
+  crewPrimaryText: {
+    fontFamily: "Montserrat_600SemiBold",
+    fontSize: 14,
     color: Colors.textPrimary,
+    lineHeight: 18,
+  },
+  clubSecondaryText: {
+    fontFamily: "Montserrat_400Regular",
+    fontSize: 12,
+    color: Colors.textSecondary,
   },
   positionBadge: {
     width: 24,
@@ -292,12 +307,6 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat_600SemiBold",
     fontSize: 13,
     color: Colors.primary,
-  },
-  crewText: {
-    fontFamily: "Montserrat_400Regular",
-    fontSize: 11,
-    color: Colors.textLight,
-    marginLeft: 36,
-    marginTop: 1,
+    paddingTop: 2,
   },
 });

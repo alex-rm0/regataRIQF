@@ -1,0 +1,3503 @@
+{
+  "races": [
+    {
+      "raceNumber": 1,
+      "time": "9:30",
+      "category": "Sub17",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Galitos",
+          "crewNames": "Érica Matos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Infante",
+          "crewNames": "Ana Abreu",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Fluvial",
+          "crewNames": "Beatriz Esmeriz",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Liane Melo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Maria Oliveira Pinto",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 2,
+      "time": "9:35",
+      "category": "Sub17",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Cedeira",
+          "crewNames": "Leire Rodriguez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Galitos",
+          "crewNames": "Gabriela Moreira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Maria Lopes Leite",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Carolina Candeias",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "VR Lima",
+          "crewNames": "Raphaelle Morais",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 3,
+      "time": "9:40",
+      "category": "Sub17",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Fluvial",
+          "crewNames": "Francisca Lopes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "Mónica Arsénio",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Ginásio",
+          "crewNames": "Mariana Nada",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Sport CP",
+          "crewNames": "Sofia Carvalho Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Infante",
+          "crewNames": "Maria Silva Reis",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 4,
+      "time": "9:45",
+      "category": "Sub17",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 4",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "VR Lima",
+          "crewNames": "Vitória Zabeu",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Corvera",
+          "crewNames": "Julia Casariego",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Ría de Marín",
+          "crewNames": "Hanna Aquino",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "CP Cacia",
+          "crewNames": "Carolina Lopes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Fluvial",
+          "crewNames": "Marie Gonçalves",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 5,
+      "time": "9:50",
+      "category": "Sub17",
+      "gender": "Feminino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "VR Lima",
+          "crewNames": "Constança Lima / Lara Lomba",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Infante",
+          "crewNames": "Joana Areias / Clara Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Ría de Marín",
+          "crewNames": "Carmne Suarez / Saleta Fernandez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Fluvial",
+          "crewNames": "Francisca Gonçalves / Maria David",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 6,
+      "time": "9:55",
+      "category": "Sub17",
+      "gender": "Feminino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Praia Mira",
+          "crewNames": "Beatriz Silva / Soraia Miranda",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Ginásio",
+          "crewNames": "Beatriz Silva / Anamar Ribeiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Mandeo",
+          "crewNames": "Miriam Faraldo / Helga Perez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 7,
+      "time": "10:00",
+      "category": "Sub17",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Ginásio",
+          "crewNames": "André Serra",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "Miguel Borges",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Pedro Henriques",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Fluvial",
+          "crewNames": "Francisco Costa Santos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Ría de Marín",
+          "crewNames": "Gorka Sobrino",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 8,
+      "time": "10:05",
+      "category": "Sub17",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Sport CP",
+          "crewNames": "Artur Sousa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Fluvial",
+          "crewNames": "Bernardo Jorge",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "CP Cacia",
+          "crewNames": "Santiago Félix",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Naval",
+          "crewNames": "Duarte Redentor Santos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Mandeo",
+          "crewNames": "Marcos Sellares",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 9,
+      "time": "10:10",
+      "category": "Sub17",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "VR Lima",
+          "crewNames": "Afonso Marinho",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Académica",
+          "crewNames": "António Vilão",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Ría de Marín",
+          "crewNames": "Breogan Dopazo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Infante",
+          "crewNames": "Gonçalo Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Infante",
+          "crewNames": "Igor Ribeiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 10,
+      "time": "10:15",
+      "category": "Sub17",
+      "gender": "Masculino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Académica",
+          "crewNames": "André Godinho / António Candeias",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Naval",
+          "crewNames": "José Simão / Martim Santos Dias",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "VR Lima",
+          "crewNames": "Rodrigo Pinheiro / Bernardo Gomes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Ginásio",
+          "crewNames": "Tiago Pinheiro / André Campos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "ANLisboa",
+          "crewNames": "Ricardo Janty / Sandro Isoré",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 11,
+      "time": "10:20",
+      "category": "Sub17",
+      "gender": "Masculino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Fluvial",
+          "crewNames": "Rodrigo Ferreira da Fonseca / Martim Raposo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Naval",
+          "crewNames": "João Carvalho Monteiro / Reef Snijders",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Infante",
+          "crewNames": "Alexandre Tavares / Manuel Monteiro Sousa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "ANLisboa",
+          "crewNames": "Nicolas Medeiro / Rodrigo Pinto",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "VR Lima",
+          "crewNames": "Guilherme Correia / David Serrão",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 12,
+      "time": "10:25",
+      "category": "Sub17",
+      "gender": "Masculino",
+      "boatType": "4x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 2,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Tomás Catarino / Gonçalo Madeira Gonçalves / Guilherme Madeira Gonçalves / Dinis Pacheco",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Galitos",
+          "crewNames": "Afonso Simões / João Silva Soares / Miguel Santinha / Gonçalo Queirós Pereira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Fluvial",
+          "crewNames": "Rodrigo Miranda / Joaquim Madureira / Tiago Rocha Rodrigues / Lourenço Sousa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Infante",
+          "crewNames": "Simão Santos / Rafael Belchior / Afonso Cardoso / Ricardo Abreu",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 13,
+      "time": "10:30",
+      "category": "Sub17",
+      "gender": "Masculino",
+      "boatType": "4x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Ría",
+          "crewNames": "de Marín Gorka Sobrino / Breogan Dopazo / Alejandro Durante / Ruben Barros",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Sport CP",
+          "crewNames": "Ivo Martins / João Silva Vasconcelos / Diogo Silva / Miguel Vasconcelos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Manuel Vinagre / Júlio Santos / João Canelas Carvalho / Pedro Balça",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 14,
+      "time": "10:35",
+      "category": "Sub11",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 3,
+          "clubName": "Académica",
+          "crewNames": "Mia Rodrigues",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Maria Pratas Gomes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Ginásio",
+          "crewNames": "Carlota Monteiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Naval",
+          "crewNames": "Lucía Camejo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 15,
+      "time": "10:40",
+      "category": "Sub11",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Corvera",
+          "crewNames": "Mateo Suarez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "VR Lima",
+          "crewNames": "Rodrigo Calçada",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Bernardo Palaio",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Fluvial",
+          "crewNames": "Valentino Sousa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Fluvial",
+          "crewNames": "Vasco Barros",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Cerveira",
+          "crewNames": "Anxo Rodriguez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 16,
+      "time": "10:45",
+      "category": "Sub11",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Vicente Carvalho dos Santos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "CP Cacia",
+          "crewNames": "Santiago Martins",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Fluvial",
+          "crewNames": "Francisco Ribeiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "VR Lima",
+          "crewNames": "João Meira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "VR Lima",
+          "crewNames": "Manuel Afonso",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 17,
+      "time": "10:50",
+      "category": "Sub15",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Cedeira",
+          "crewNames": "Leire rodriguez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Sport CP",
+          "crewNames": "Mariana Batista",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Cerveira",
+          "crewNames": "Carolina Fernandes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "CP Cacia",
+          "crewNames": "Matilde Ladeira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 18,
+      "time": "10:55",
+      "category": "Sub13",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 3,
+          "clubName": "Ginásio",
+          "crewNames": "Marta Grilo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Fluvial",
+          "crewNames": "Carlota Coelho",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Cerveira",
+          "crewNames": "Leyna Orduña",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 19,
+      "time": "11:00",
+      "category": "Sub13",
+      "gender": "Feminino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Corvera",
+          "crewNames": "Lena Gonzalez / Daniela Rodriguez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "VR Lima",
+          "crewNames": "Lidia Queirós / Ana Veloso",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Cedeira",
+          "crewNames": "Claudia Loureiro / Sofia Lopez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Fluvial",
+          "crewNames": "Carlota Gesta / Iara Azevedo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Naval",
+          "crewNames": "Constança Matos / Mafalda Condesso",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 20,
+      "time": "11:05",
+      "category": "Sub13",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Fluvial",
+          "crewNames": "Francisco Ferreira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Ginásio",
+          "crewNames": "Lourenço Carriça",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Naval",
+          "crewNames": "Yaroslav Alieinikov",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Infante",
+          "crewNames": "Tomás Sousa e Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Rodrigo Carregado",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Corvera",
+          "crewNames": "Enol Dias Gonzalez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 21,
+      "time": "11:10",
+      "category": "Sub13",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Tomás Estrabocha",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Infante",
+          "crewNames": "Henrique Rodrigues",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Tiago Caridade",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Naval",
+          "crewNames": "Felipev Celis",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Sport CP",
+          "crewNames": "Alberto Faria",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 22,
+      "time": "11:15",
+      "category": "Sub13",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Infante",
+          "crewNames": "Diogo Loureiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Naval",
+          "crewNames": "Guilherme Robalo Marques",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Vasco Cardoso",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "VR Lima",
+          "crewNames": "Gonçalo Pires",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Ginásio",
+          "crewNames": "Sérgio Salgado",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 23,
+      "time": "11:20",
+      "category": "Sub13",
+      "gender": "Masculino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Ría de Marín",
+          "crewNames": "Fabian Pintos / Diego Buceta",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Fluvial",
+          "crewNames": "Xavier Madureira / João Almeida Barros",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Infante",
+          "crewNames": "Gonçalo Vieira da Silva / André Soares",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Cedeira",
+          "crewNames": "Maneul Villadoniga / Diego Loureiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Praia Mira",
+          "crewNames": "David Costa Silva / Bernardo Saborano",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 24,
+      "time": "11:25",
+      "category": "Sub15",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Naval",
+          "crewNames": "Maria Germano",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Galitos",
+          "crewNames": "Leonor Nolasco Marques",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Cerveira",
+          "crewNames": "Maria Fariñas",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "CP Cacia",
+          "crewNames": "Inês Valente",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Matilde Piçarra",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 25,
+      "time": "11:30",
+      "category": "Sub15",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Fluvial",
+          "crewNames": "Ann Gonçalves",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Cerveira",
+          "crewNames": "Leonor Amorim",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Naval",
+          "crewNames": "Milana Krasnova",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Beatriz Lagem",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Cerveira",
+          "crewNames": "Júlia Soares",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Infante",
+          "crewNames": "Ariana Pereira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 26,
+      "time": "11:35",
+      "category": "Sub15",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Infante",
+          "crewNames": "Alicia Soares",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Corvera",
+          "crewNames": "Sandra Burgos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "VR Lima",
+          "crewNames": "Lara Serrão",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Cerveira",
+          "crewNames": "Marta Lages",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 27,
+      "time": "11:40",
+      "category": "Sub15",
+      "gender": "Feminino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "VR Lima",
+          "crewNames": "Maria Pires Veloso / Diana Lomba",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Naval",
+          "crewNames": "Maria Rodrigues / Sara Leal",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Académica",
+          "crewNames": "Sofia Cardoso / Matilde Gomes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "VR Lima",
+          "crewNames": "Maria Pires Veloso / André Cunha",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Ginásio",
+          "crewNames": "Marta Ferreira / Iris Faustino",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Infante",
+          "crewNames": "Margarida Magalhães / Leonor Sousa Martins",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 28,
+      "time": "11:45",
+      "category": "Sub15",
+      "gender": "Feminino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Mandeo",
+          "crewNames": "Noa Pombo / Carolina Faraldo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Naval",
+          "crewNames": "Lara Rodrigues / Isabelly Griza",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Sport CP",
+          "crewNames": "Beatriz Correia / Claudia Martins",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "VR Lima",
+          "crewNames": "Gabryelle Morais / Iara Ribeiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Infante",
+          "crewNames": "Amélia Rebeiro / Margarida Moreira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Galitos",
+          "crewNames": "Joana Escaleira Martins / Beatriz Sousa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 29,
+      "time": "11:50",
+      "category": "Sub15",
+      "gender": "Masculino",
+      "boatType": "4x",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Guilherme Cardoso / Diogo Rodrigues dos Santos / Vicente Mendes / Tomás Pacheco",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Infante",
+          "crewNames": "Duarte Lopes / Afonso Lima / Gonçalo Carvalho / Rodrigo Bajouco",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "VR Lima",
+          "crewNames": "Duarte Godinho / Hugo Dias / Carlos Borges / André Cunha",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Corvera",
+          "crewNames": "Sebastian Rocznial / Pedro Rodriguez / Nico Romero / Alvaro Gonzalez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Nikita Yarotskyi / Eduardo Costa Campos / Lucas Oliveira / Salvador Carreira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Ría de Marín",
+          "crewNames": "Carlos Ruibal / Xabi Bacelar / Johel Moya / Mauro Pintos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 30,
+      "time": "11:55",
+      "category": "Sub15",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "CP Cacia",
+          "crewNames": "Rodrigo Pinho",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Naval",
+          "crewNames": "Dinis Santos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Galitos",
+          "crewNames": "João Cruz Fernandes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Cedeira",
+          "crewNames": "Ruben Prieto",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Ría de Marín",
+          "crewNames": "Alejandro Durante",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 31,
+      "time": "12:00",
+      "category": "Sub15",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Naval",
+          "crewNames": "Miguel Mendes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Corvera",
+          "crewNames": "Alvaro Jorge",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Mandeo",
+          "crewNames": "Luis Sellares",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "CP Cacia",
+          "crewNames": "António Aguiar",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 32,
+      "time": "12:05",
+      "category": "Sub15",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Académica",
+          "crewNames": "Santiago Azevedo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Sport CP",
+          "crewNames": "Miguel Santos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Ría de Marín",
+          "crewNames": "Ruben Barros",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Diogo Loureiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 33,
+      "time": "12:10",
+      "category": "Sub15",
+      "gender": "Masculino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Corvera",
+          "crewNames": "Luca Llorente / Marcos Pereira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Ría de Marín",
+          "crewNames": "Carlos Ruibal / Xabi Bacelar",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Naval",
+          "crewNames": "Thomas Hakhurst / Mikhail Godunov",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Santiago Rodrigues / Diogo Caridade",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "VR Lima",
+          "crewNames": "José Cunha / Marcelo Dantas",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 34,
+      "time": "12:15",
+      "category": "Sub15",
+      "gender": "Masculino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Martim Cabrito / Henrique Lourenço",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Ría de Marín",
+          "crewNames": "Johel Moya / Mauro Pintos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Naval",
+          "crewNames": "Diogo Janeiro / Francisco Simões Cardoso",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Corvera",
+          "crewNames": "Mateo Nalda / Mateo Otero",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 35,
+      "time": "12:20",
+      "category": "Sub15",
+      "gender": "Masculino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Infante",
+          "crewNames": "Diogo Cordeiro / Rodrigo Bajouco",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Ría de Marín",
+          "crewNames": "Martin Valbuena / Eluney Malvarez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Francisco Santos / Manuel Ribeiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Cedeira",
+          "crewNames": "Ruben Prieto / Lucas Cendan",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 36,
+      "time": "12:25",
+      "category": "Sub17",
+      "gender": "Feminino",
+      "boatType": "4x",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 3,
+          "clubName": "Fluvial",
+          "crewNames": "Francisca Gonçalves / Marie Gonçalves / Maria David / Francisca Lopes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "VR Lima",
+          "crewNames": "Lara Lomba / Raphaelle Morais / Vitória Zabeu / Constança Lima",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Infante",
+          "crewNames": "Clara Silva / Maria Silva Reis / Ana Abreu / Joana Areias",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 37,
+      "time": "12:30",
+      "category": "Sub17",
+      "gender": "Masculino",
+      "boatType": "8+",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 3,
+          "clubName": "Académica",
+          "crewNames": "André Godinho / Manuel Vinagre / António Vilão / Pedro Henriques",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Infante",
+          "crewNames": "Simão Santos / Rafael Belchior / Alexandre Tavares / Ricardo Abreu",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Fluvial",
+          "crewNames": "Rodrigo Miranda / Joaquim Madureira / Francisco Costa Santos / Martim Raposo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 38,
+      "time": "14:15",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Corvera",
+          "crewNames": "Diego Fernandez / Ronny Miranda",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Fluvial",
+          "crewNames": "Delfim Torres / Carlos Silva Costa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "João Costa de Matos / Tiago Passarinho Gonçalves",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Barreirense",
+          "crewNames": "Rui Faria / Pedro Santos Reis",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Naval",
+          "crewNames": "Dinis Oliveira / Rodrigo Almeida",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Académica",
+          "crewNames": "Vítor Ribeiro / Nuno Oliveira da Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 39,
+      "time": "14:20",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "CR Tui",
+          "crewNames": "Martin Santana / Alvaro Guedes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Naval",
+          "crewNames": "Duarte Sisudo / Henrique Carrapato",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Praia Mira",
+          "crewNames": "João Tomásio / João Miranda Vieira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Galitos",
+          "crewNames": "Afonso Confraria / Simão Oliveira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Sport CP",
+          "crewNames": "João Hora Barbosa / Gabriel Pinto",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Académica",
+          "crewNames": "Alexandre Magalhães / André Fonseca Ramos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 40,
+      "time": "14:25",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "ANLisboa",
+          "crewNames": "Marcos Bento / Julien Lenkeit",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Mandeo",
+          "crewNames": "Alberto Dias / Yerai Pombo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Galitos",
+          "crewNames": "Bernardo Abreu / André Oliveira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Mandeo",
+          "crewNames": "José Gonzalez / Benito Rodriguez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "VR Lima",
+          "crewNames": "Pedro Cordeiro / Jorge Castro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Ginásio",
+          "crewNames": "Carlos Jesus Cunha / Tomás Gomes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 41,
+      "time": "14:30",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "2-",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Galitos",
+          "crewNames": "André Reisinho Ferreira / José Pontes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Galitos",
+          "crewNames": "Daniel Oliveira / Noé Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Fluvial",
+          "crewNames": "José Alves / Didier Mamet",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "André Ribeiro / Tomás Gaspar",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Naval",
+          "crewNames": "André Leal / Hugo Baeta",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Académica",
+          "crewNames": "Tiago Susano / Gonçalo Delgado",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 42,
+      "time": "14:40",
+      "category": "Absoluto",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Ginásio",
+          "crewNames": "Matilde Murta Ferreira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "Mariana Freire Cardoso",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Francisca Duarte",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Naval",
+          "crewNames": "Ana Pereira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Galitos",
+          "crewNames": "Leonor Costa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 43,
+      "time": "14:45",
+      "category": "Absoluto",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Corvera",
+          "crewNames": "Andrea Nalda",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "Cecilia Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Maria Carvalheiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Sport CP",
+          "crewNames": "Maria Pedroto",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Galitos",
+          "crewNames": "Filipa Araújo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 44,
+      "time": "14:50",
+      "category": "Absoluto",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 2,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Académica",
+          "crewNames": "Marine Taillandier",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Barreirense",
+          "crewNames": "Diana Almeida",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Naval",
+          "crewNames": "Alice Gonçalves",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Ría de Marín",
+          "crewNames": "Pilar Bouzas",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "ANLisboa",
+          "crewNames": "Elena Costa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 45,
+      "time": "15:00",
+      "category": "ParaRemo",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Ginásio",
+          "crewNames": "Rui Pereira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "Nuno Picado",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Galitos",
+          "crewNames": "Júlio Teixeira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "CP Cacia",
+          "crewNames": "André Pacheco",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Ginásio",
+          "crewNames": "Tiago Duarte",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 46,
+      "time": "15:05",
+      "category": "ParaRemo",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "CP Cacia",
+          "crewNames": "Lucas Bodas",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Infante",
+          "crewNames": "Pedro Tiago Coelho",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Ginásio",
+          "crewNames": "Ricardo Gaudêncio",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Naval",
+          "crewNames": "Diogo Fajardo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Galitos",
+          "crewNames": "Gonçalo Mota",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 47,
+      "time": "15:10",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "4+",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 3,
+          "clubName": "CR Tui",
+          "crewNames": "Diego das Dores / Ander Goldaracena / Unai Goldaracena / Bruno Tejido",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Orlando Lourenço / Miguel Caetano / José Calisto / Nuno Silvestre",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Nelson Silva / Ricardo Gil dos Reis / Tibério Albuquerque / Osvaldo Leite",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 48,
+      "time": "15:15",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "4-",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 3,
+          "clubName": "Fluvial",
+          "crewNames": "Hugo Castro / Miguel Nogueira da Costa / Luís Barquinha / Rui Oliveira de Sousa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Miguel Alfaiate / João Gomes / João Ferreira / Bruno Carvalho",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "ANLisboa",
+          "crewNames": "Pedro Colaço / Manuel Borges / André Barreto / João Marçal",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 49,
+      "time": "15:20",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "4x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Gabriel Munteanu / Ricardo Heitor / Francisco Caetano / Guilherme Carriço",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "CR Tui",
+          "crewNames": "Eduardo Moreira / Diedo das Dores / Javier Platero / Ander Goldaracena",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "Isaac Oliveira / João Ribeiro E Silva / Rafael Filipe / Tomás Vieira Ferreira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Naval",
+          "crewNames": "Pedro Acúrcio / Nelson Ruivo da Silva / Nuno Sisudo / José Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Alexandre Ferreira / Júlio Reis / Rui Gaspar / Rui Dias",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 50,
+      "time": "15:25",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "4x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Académica",
+          "crewNames": "André Ribeiro / Luís Castro Martins / Artur Ribeiro / Hugo Noronha",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Praia Mira",
+          "crewNames": "João Braga / José Saro / Gabriel Fragona / Filipe Leigo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Ría",
+          "crewNames": "de Marín Benito Rodriguez / Antonio Rosales / Francisco Portas / José Gonzalez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Fluvial",
+          "crewNames": "José Agante / José Esmeriz / Nuno Sousa / Sérgio Barbosa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 51,
+      "time": "15:30",
+      "category": "Sub13",
+      "gender": "Misto",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 3,
+          "clubName": "Naval",
+          "crewNames": "Constança Matos / Yaroslav Alieinikov",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Naval",
+          "crewNames": "Mafalda Condesso / Guilherme Robalo Marques",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Ginásio",
+          "crewNames": "Sérgio Salgado / Marta Grilo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 52,
+      "time": "15:35",
+      "category": "Absoluto",
+      "gender": "Feminino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Galitos",
+          "crewNames": "Bruna Moreira / Matilde Granjeia",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Naval",
+          "crewNames": "Salomé Lemos / Margarida Domingos da Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "VR Lima",
+          "crewNames": "Mia Miranda / Eva Martins",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Galitos",
+          "crewNames": "Leonor Costa / Maria Loura",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Sport CP",
+          "crewNames": "Camila Martins / Catarina Costa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 53,
+      "time": "15:40",
+      "category": "Absoluto",
+      "gender": "Feminino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Cátia Rechena / Laura Carvalho",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "VR Lima",
+          "crewNames": "Carolina Cunha / Maria Pimenta",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Naval",
+          "crewNames": "Raquel Redentor Santos / Sara Baptista",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "ANLisboa",
+          "crewNames": "Cecilia Silva / Elena Costa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 54,
+      "time": "15:45",
+      "category": "Absoluto",
+      "gender": "Feminino",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Fluvial",
+          "crewNames": "Ana Guedes / Sílvia Anunciação",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Académica",
+          "crewNames": "Carina Freitas / Milene Leite",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Ana Gaudêncio / Cristina Cavaco",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "CP Cacia",
+          "crewNames": "Raquel Quinta Santos / Susana Santos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 55,
+      "time": "15:55",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Barreirense",
+          "crewNames": "Rui Faria",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "Raphael Stebelski",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Sport CP",
+          "crewNames": "Gustavo Zabot",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "CP Cacia",
+          "crewNames": "Francisco Lemos Martins",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Académica",
+          "crewNames": "Alexandre Ferreira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 7,
+          "clubName": "Naval",
+          "crewNames": "Stephen Encarnacion",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 56,
+      "time": "16:00",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Sport CP",
+          "crewNames": "Pedro Neves",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "João Rodrigues Fernandes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Galitos",
+          "crewNames": "Simão Oliveira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Corvera",
+          "crewNames": "Diego Fernandez",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Dinis Lagem",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Praia Mira",
+          "crewNames": "André Verissimo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 57,
+      "time": "16:05",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 3",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Praia Mira",
+          "crewNames": "António Neves",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "ANLisboa",
+          "crewNames": "Marcos Bento",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Corvera",
+          "crewNames": "Ronny Miranda",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Fluvial",
+          "crewNames": "José Agante",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Galitos",
+          "crewNames": "Pedro Vilarinho",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "VR Lima",
+          "crewNames": "Filipe Carvalho",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 58,
+      "time": "16:10",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Heat 4",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "CR Tui",
+          "crewNames": "Bruno Tejido",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Naval",
+          "crewNames": "José Correia Azevedo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "Julien Lenkeit",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "CP Cacia",
+          "crewNames": "João Tavares",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Barreirense",
+          "crewNames": "Pedro Santos Reis",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Fluvial",
+          "crewNames": "Luís Madureira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 59,
+      "time": "16:15",
+      "category": "Sub15",
+      "gender": "Misto",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Académica",
+          "crewNames": "Beatriz Lagem / Santiago Azevedo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Sport CP",
+          "crewNames": "Miguel Santos / Beatriz Correia",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Académica",
+          "crewNames": "Sofia Cardoso / Manuel Ribeiro",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "CP Cacia",
+          "crewNames": "Matilde Ladeira / Rodrigo Pinho",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Naval",
+          "crewNames": "Isabelly Griza / Francisco Simões Cardoso",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "VR Lima",
+          "crewNames": "Gabryelle Morais / Marcelo Dantas",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 60,
+      "time": "16:20",
+      "category": "Sub15",
+      "gender": "Misto",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 6,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "VR Lima",
+          "crewNames": "Duarte Godinho / Lara Serrão",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Naval",
+          "crewNames": "Miguel Mendes / Lara Rodrigues",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Corvera",
+          "crewNames": "Pedro Rodriguez / Sandra Burgos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Francisco Santos / Matilde Gomes",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "CP Cacia",
+          "crewNames": "António Aguiar / Inês Valente",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Ginásio",
+          "crewNames": "Bernardo Oliveira / Iris Faustino",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 61,
+      "time": "16:25",
+      "category": "Sub17",
+      "gender": "Misto",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "Académica",
+          "crewNames": "António Candeias / Maria Lopes Leite",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Corvera",
+          "crewNames": "Julia Casariego / Sebastian Roczniak",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Sport CP",
+          "crewNames": "Sofia Carvalho Silva / Miguel Vasconcelos",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "ANLisboa",
+          "crewNames": "Miguel Borges / Mónica Arsénio",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 62,
+      "time": "16:30",
+      "category": "Sub17",
+      "gender": "Misto",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 1,
+          "clubName": "VR Lima",
+          "crewNames": "Rodrigo Pinheiro / Raphaelle Morais",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 2,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Guilherme Gonçalves / Carolina Candeias",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Fluvial",
+          "crewNames": "Bernardo Jorge / Beatriz Esmeriz",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "André Godinho / Maria Oliveira Pinto",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "CP Cacia",
+          "crewNames": "Carolina Costa Lopes / Santiago Félix",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 63,
+      "time": "16:35",
+      "category": "Absolutos",
+      "gender": "Misto",
+      "boatType": "4x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 3,
+          "clubName": "ANLisboa",
+          "crewNames": "Marcos Bento / Cecilia Silva / Julien Lenkeit / Elena Costa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "André Fonseca Ramos / Dinis Lagem / Maria Carvalheiro / Marine Taillandier",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Galitos",
+          "crewNames": "Rui Rosa / Afonso Confraria / Matilde Granjeia / Bruna Moreira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Sport CP",
+          "crewNames": "Camila Martins / João Hora Barbosa / Gabriel Pinto / Catarina Costa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 64,
+      "time": "16:40",
+      "category": "Absolutos",
+      "gender": "Misto",
+      "boatType": "4x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "VR Lima",
+          "crewNames": "Filipe Carvalho / Jorge Castro / Maria Pimenta / Carolina Cunha",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Académica",
+          "crewNames": "André Ribeiro / Carina Freitas / Francisca Duarte / Tomás Gaspar",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Galitos",
+          "crewNames": "Maria Loura / José Pontes / André Reisinho Ferreira / Leonor Costa",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Fluvial",
+          "crewNames": "Delfim Torres / Carlos Silva Costa / Alexandrina Lopes / Cristina Barros",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 65,
+      "time": "16:45",
+      "category": "Absolutos",
+      "gender": "Misto",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Ría de Marín",
+          "crewNames": "Pilar Bouzas / Francisco",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Académica",
+          "crewNames": "Carina Freitas / Afonso Bernardino",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Galitos",
+          "crewNames": "Noé Silva / Filipa Araújo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Bruno Carvalho / Filipa Bernardo",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "Guilherme Carriço / Inês Dinis",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 66,
+      "time": "16:50",
+      "category": "Absolutos",
+      "gender": "Misto",
+      "boatType": "2x",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 4,
+      "entries": [
+        {
+          "lane": 3,
+          "clubName": "Barreirense",
+          "crewNames": "Diana Almeida / Pedro Tomás",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Alexandre Magalhães / Marine Taillandier",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Fluvial",
+          "crewNames": "João Veiga / Patricia Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "ANLisboa",
+          "crewNames": "Mariana Freire Cardoso / Rafael Filipe",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 67,
+      "time": "16:55",
+      "category": "Para Remo",
+      "gender": "Feminino",
+      "boatType": "1x",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 2,
+      "entries": [
+        {
+          "lane": 4,
+          "clubName": "Ginásio",
+          "crewNames": "Carla Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Infante",
+          "crewNames": "Inês Pereira",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 68,
+      "time": "17:05",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "8+",
+      "distance": 500,
+      "phase": "Heat 1",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Naval",
+          "crewNames": "José Canhola / Duarte Sisudo / Henrique Carrapato / Pedro Gonçalves de Oliveira / José Correia Azevedo / Rodrigo Almeida / André Leal / Hugo Baeta / Mariana Matias Rodrigues (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Galitos",
+          "crewNames": "André Reisinho Ferreira / José Pontes / Rui Rosa / Simão Oliveira / Afonso Confraria / Noé Silva / Daniel Oliveira / João Vaz / Miguel Louro (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Dinis Lagem / João Gomes / André Fonseca Ramos / Alexandre Magalhães / Bruno Carvalho / João Ferreira / Tiago Susano / Gonçalo Delgado / Nathaniel Matias (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Académica",
+          "crewNames": "Osvaldo Leite / Tibério Albuquerque / Nuno Oliveira da Silva / Júlio Reis / Vítor Ribeiro / Rui Dias / Nelson Silva / Ricardo Gil dos Reis / Matilde Velze (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Ferr. Barreiro",
+          "crewNames": "João Rodrigues Fernandes / Ricardo Heitor / Guilherme Carriço / Orlando Lourenço / Gabriel Munteanu / Francisco Caetano / Nuno Silvestre / José Calisto / Leonor Fernandes (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 69,
+      "time": "17:10",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "8+",
+      "distance": 500,
+      "phase": "Heat 2",
+      "lanes": 3,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "CR Tui",
+          "crewNames": "Diego das Dorez / Ander Goldaracena / Alvaro Guede / Nicolas Pena / Bruno Tejido / Unai Goldaracena / Martin Santana / Yago Vicente / Pablo Bautista (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Académica",
+          "crewNames": "André Ribeiro / Alexandre Ferreira / Afonso Bernardino / Luís Castro Martins / Hugo Noronha / Artur Ribeiro / Tomás Gaspar / Pedro Aguiam de Oliveira / Nathaniel Matias (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "ANLisboa",
+          "crewNames": "João Costa de Matos / Tiago Passarinho Gonçalves / Pedro Colaço / Raphael Stebelski / Julien Lenkeit / Marcos Bento / Rafael Filipe / João Roque Da Silva / Manuel Borges (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Fluvial",
+          "crewNames": "Luís Madureira / Miguel Nogueira da Costa / Hugo Castro / Rui Oliveira de Sousa / Luís Barquinha / Nuno Sousa / José Esmeriz / Sérgio Barbosa / Domingos Miranda (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "Infante",
+          "crewNames": "Diogo Sousa / Eduardo Silva Reis / João Castro / João Cunha Santos / Francisco Gonzalez / Bernardo Cruz / Martim Pontes / Vasco Reis / Vasco Moreira (T)",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 70,
+      "time": "17:15",
+      "category": "Absoluto",
+      "gender": "Feminino",
+      "boatType": "4x",
+      "distance": 500,
+      "phase": "Serie",
+      "lanes": 5,
+      "entries": [
+        {
+          "lane": 2,
+          "clubName": "Infante",
+          "crewNames": "Adriana Pereira / Inês Organista / Alexandra Santos / JOANA PEDROSA",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 3,
+          "clubName": "Fluvial",
+          "crewNames": "Sara Ramos Alves / Alexandrina Lopes / Patricia Silva / Cristina Barros",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 4,
+          "clubName": "Académica",
+          "crewNames": "Francisca Duarte / Marine Taillandier / Maria Carvalheiro / Carina Freitas",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 5,
+          "clubName": "Naval",
+          "crewNames": "Raquel Redentor Santos / Ana Pereira / Sara Baptista / Margarida Domingos da Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        },
+        {
+          "lane": 6,
+          "clubName": "ANLisboa",
+          "crewNames": "Elena Costa / Mariana Freire Cardoso / Rita Tigeleiro / Cecilia Silva",
+          "resultTime": null,
+          "position": null,
+          "status": null
+        }
+      ]
+    },
+    {
+      "raceNumber": 71,
+      "time": "17:20",
+      "category": "Absoluto",
+      "gender": "Masculino",
+      "boatType": "8+",
+      "distance": 500,
+      "phase": "Final",
+      "lanes": 6,
+      "entries": []
+    }
+  ]
+}

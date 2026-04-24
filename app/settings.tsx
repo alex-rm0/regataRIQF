@@ -83,8 +83,8 @@ export default function SettingsScreen() {
               <Ionicons name="people" size={20} color={Colors.primary} />
             </View>
             <View style={styles.menuContent}>
-              <Text style={styles.menuTitle}>Organizacao</Text>
-              <Text style={styles.menuSubtitle}>Seccao de Desportos Nauticos - AAC</Text>
+              <Text style={styles.menuTitle}>Organização</Text>
+              <Text style={styles.menuSubtitle}>Secção de Desportos Nauticos - AAC</Text>
             </View>
           </View>
           <View style={[styles.menuItem, styles.menuItemBorder]}>

@@ -114,10 +114,10 @@ export default function HomeScreen() {
           </View>
 
           <View style={styles.orgSection}>
-            <Text style={styles.orgTitle}>Organizacao</Text>
+            <Text style={styles.orgTitle}>Organização</Text>
             <Text style={styles.orgText}>
-              Seccao de Desportos Nauticos{"\n"}
-              Associacao Academica de Coimbra
+              Secção de Desportos Nauticos{"\n"}
+              Associação Academica de Coimbra
             </Text>
           </View>
         </View>

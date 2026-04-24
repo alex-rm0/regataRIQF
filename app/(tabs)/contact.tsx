@@ -61,7 +61,7 @@ export default function ContactScreen() {
           </View>
           <Text style={styles.successTitle}>Mensagem enviada!</Text>
           <Text style={styles.successText}>
-            A organizacao recebeu a sua mensagem e respondera o mais brevemente possivel.
+            A organização recebeu a sua mensagem e respondera o mais brevemente possivel.
           </Text>
           <Pressable
             style={({ pressed }) => [styles.newMessageBtn, pressed && { opacity: 0.8 }]}
@@ -78,7 +78,7 @@ export default function ContactScreen() {
     <View style={styles.container}>
       <View style={[styles.header, { paddingTop: topInset + 12 }]}>
         <Text style={styles.headerTitle}>Contacto</Text>
-        <Text style={styles.headerSubtitle}>Entre em contacto com a organizacao</Text>
+        <Text style={styles.headerSubtitle}>Entre em contacto com a organização</Text>
       </View>
 
       <KeyboardAvoidingView
