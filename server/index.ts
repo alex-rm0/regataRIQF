@@ -14,36 +14,43 @@ declare module "http" {
 }
 
 function setupCors(app: express.Application) {
+  const normalizeOrigin = (value: string) => value.trim().replace(/\/+$/, "");
+
   app.use((req, res, next) => {
     const origins = new Set<string>();
 
     if (process.env.REPLIT_DEV_DOMAIN) {
-      origins.add(`https://${process.env.REPLIT_DEV_DOMAIN}`);
+      origins.add(normalizeOrigin(`https://${process.env.REPLIT_DEV_DOMAIN}`));
     }
 
     if (process.env.REPLIT_DOMAINS) {
       process.env.REPLIT_DOMAINS.split(",").forEach((d) => {
-        origins.add(`https://${d.trim()}`);
+        origins.add(normalizeOrigin(`https://${d.trim()}`));
       });
     }
 
     if (process.env.ALLOWED_ORIGINS) {
       process.env.ALLOWED_ORIGINS.split(",").forEach((d) => {
-        origins.add(d.trim());
+        origins.add(normalizeOrigin(d));
       });
     }
 
     const origin = req.header("origin");
+    const normalizedOrigin = origin ? normalizeOrigin(origin) : undefined;
 
     // Allow localhost origins for Expo web development (any port)
     const isLocalhost =
-      origin?.startsWith("http://localhost:") ||
-      origin?.startsWith("http://127.0.0.1:");
+      normalizedOrigin?.startsWith("http://localhost:") ||
+      normalizedOrigin?.startsWith("http://127.0.0.1:");
 
-    const isReplitWithPort = origin && process.env.REPLIT_DEV_DOMAIN &&
-      origin.includes(process.env.REPLIT_DEV_DOMAIN);
+    const isReplitWithPort = normalizedOrigin && process.env.REPLIT_DEV_DOMAIN &&
+      normalizedOrigin.includes(process.env.REPLIT_DEV_DOMAIN);
 
-    if (origin && (origins.has(origin) || isLocalhost || isReplitWithPort)) {
+    if (
+      origin &&
+      normalizedOrigin &&
+      (origins.has(normalizedOrigin) || isLocalhost || isReplitWithPort)
+    ) {
       res.header("Access-Control-Allow-Origin", origin);
       res.header(
         "Access-Control-Allow-Methods",

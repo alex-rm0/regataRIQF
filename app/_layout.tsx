@@ -2,7 +2,6 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect } from "react";
-import { Platform } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
@@ -32,7 +31,7 @@ function RootLayoutNav() {
 }
 
 export default function RootLayout() {
-  const nativeFonts = Platform.OS !== "web" ? {
+  const appFonts = {
     Montserrat_400Regular,
     Montserrat_500Medium,
     Montserrat_600SemiBold,
@@ -40,17 +39,17 @@ export default function RootLayout() {
     Montserrat_800ExtraBold,
     ...Ionicons.font,
     ...MaterialCommunityIcons.font,
-  } : {};
+  };
 
-  const [fontsLoaded, fontError] = useFonts(nativeFonts);
+  const [fontsLoaded, fontError] = useFonts(appFonts);
 
   useEffect(() => {
-    if (Platform.OS === "web" || fontsLoaded || fontError) {
+    if (fontsLoaded || fontError) {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded, fontError]);
 
-  if (Platform.OS !== "web" && !fontsLoaded && !fontError) return null;
+  if (!fontsLoaded && !fontError) return null;
 
   return (
     <ErrorBoundary>

@@ -1,4 +1,4 @@
-package com.regata.qf2026
+package com.alexm.regataqf2026
 
 import android.app.Application
 import android.content.res.Configuration

@@ -1,4 +1,4 @@
-package com.regata.qf2026
+package com.alexm.regataqf2026
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

@@ -15,13 +15,13 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.regata.qf2026",
+      "bundleIdentifier": "com.alexm.regataqf2026",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
-      "package": "com.regata.qf2026",
+      "package": "com.alexm.regataqf2026",
       "adaptiveIcon": {
         "backgroundColor": "#1A3A4A",
         "foregroundImage": "./assets/images/android-icon-foreground.png",

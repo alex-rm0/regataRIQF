@@ -87,9 +87,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.regata.qf2026'
+    namespace 'com.alexm.regataqf2026'
     defaultConfig {
-        applicationId 'com.regata.qf2026'
+        applicationId 'com.alexm.regataqf2026'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -104,15 +104,28 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            def releaseStoreFile = findProperty('MYAPP_RELEASE_STORE_FILE')?.toString() ?: ''
+            if (releaseStoreFile) {
+                storeFile file(releaseStoreFile)
+                storePassword findProperty('MYAPP_RELEASE_STORE_PASSWORD')?.toString() ?: ''
+                keyAlias findProperty('MYAPP_RELEASE_KEY_ALIAS')?.toString() ?: ''
+                keyPassword findProperty('MYAPP_RELEASE_KEY_PASSWORD')?.toString() ?: ''
+            } else {
+                storeFile file('debug.keystore')
+                storePassword 'android'
+                keyAlias 'androiddebugkey'
+                keyPassword 'android'
+            }
+        }
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
         }
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            // For final Play Console validation, build with your own release keystore.
+            signingConfig signingConfigs.release
             def enableShrinkResources = findProperty('android.enableShrinkResourcesInReleaseBuilds') ?: 'false'
             shrinkResources enableShrinkResources.toBoolean()
             minifyEnabled enableMinifyInReleaseBuilds

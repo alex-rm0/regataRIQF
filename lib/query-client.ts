@@ -8,14 +8,26 @@ export function getApiUrl(): string {
     if (loc.hostname === "localhost" || loc.hostname === "127.0.0.1") {
       return "http://localhost:5000/";
     }
+
+    const explicitApiUrl = process.env.EXPO_PUBLIC_API_URL;
+    if (explicitApiUrl) {
+      return new URL(explicitApiUrl).href;
+    }
+
+    return new URL(loc.origin).href;
   }
 
-  let host = process.env.EXPO_PUBLIC_DOMAIN;
-  if (!host) {
-    throw new Error("EXPO_PUBLIC_DOMAIN is not set");
+  const explicitApiUrl = process.env.EXPO_PUBLIC_API_URL;
+  if (explicitApiUrl) {
+    return new URL(explicitApiUrl).href;
   }
-  let url = new URL(`https://${host}`);
-  return url.href;
+
+  const host = process.env.EXPO_PUBLIC_DOMAIN;
+  if (!host) {
+    throw new Error("EXPO_PUBLIC_API_URL or EXPO_PUBLIC_DOMAIN must be set");
+  }
+
+  return new URL(`https://${host}`).href;
 }
 
 async function throwIfResNotOk(res: Response) {

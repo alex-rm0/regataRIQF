@@ -72,8 +72,8 @@ export default function AdminScreen() {
   const handleLogin = async () => {
     setLoginLoading(true);
     setLoginError("");
-    const success = await login(username, password);
-    if (!success) setLoginError("Credenciais invalidas");
+    const loginResult = await login(username, password);
+    if (loginResult) setLoginError(loginResult);
     else if (Platform.OS !== "web") Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     setLoginLoading(false);
   };

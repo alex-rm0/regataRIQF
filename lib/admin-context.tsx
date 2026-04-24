@@ -5,7 +5,7 @@ import { Platform } from "react-native";
 interface AdminContextValue {
   isAdmin: boolean;
   adminUsername: string | null;
-  login: (username: string, password: string) => Promise<boolean>;
+  login: (username: string, password: string) => Promise<string | null>;
   logout: () => void;
   getAuthHeader: () => string;
   credentials: { username: string; password: string } | null;
@@ -54,15 +54,19 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const login = async (username: string, password: string): Promise<boolean> => {
+  const login = async (username: string, password: string): Promise<string | null> => {
     const { apiRequest } = await import("@/lib/query-client");
     try {
       await apiRequest("POST", "/api/admin/login", { username, password });
       await storeCredentials(username, password);
       setCredentials({ username, password });
-      return true;
-    } catch {
-      return false;
+      return null;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "";
+      if (message.startsWith("401:")) {
+        return "Credenciais invalidas";
+      }
+      return "Nao foi possivel contactar o servidor";
     }
   };
 
