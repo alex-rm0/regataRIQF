@@ -9,6 +9,7 @@ import { FilterBar } from "@/components/FilterBar";
 import { RaceCard } from "@/components/RaceCard";
 import Colors from "@/constants/colors";
 import { CATEGORIES, GENDERS, BOAT_TYPES } from "@shared/schema";
+import { TAB_BAR_CONTENT_PADDING } from "@/constants/layout";
 
 export default function ResultsScreen() {
   const insets = useSafeAreaInsets();
@@ -102,7 +103,7 @@ export default function ResultsScreen() {
               showResults
             />
           )}
-          contentContainerStyle={{ paddingTop: 8, paddingBottom: 120 }}
+          contentContainerStyle={{ paddingTop: 8, paddingBottom: TAB_BAR_CONTENT_PADDING }}
           showsVerticalScrollIndicator={false}
           onRefresh={refetch}
           refreshing={false}

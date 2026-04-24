@@ -10,6 +10,7 @@ import { Ionicons, MaterialCommunityIcons } from "@/components/AppIcons";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
 import Colors from "@/constants/colors";
+import { TAB_BAR_CONTENT_PADDING } from "@/constants/layout";
 
 const { width } = Dimensions.get("window");
 
@@ -35,7 +36,7 @@ export default function HomeScreen() {
       </Pressable>
       <ScrollView
         style={styles.scroll}
-        contentContainerStyle={{ paddingBottom: 120 }}
+        contentContainerStyle={{ paddingBottom: TAB_BAR_CONTENT_PADDING }}
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.heroContainer}>

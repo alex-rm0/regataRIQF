@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Ionicons } from "@/components/AppIcons";
 import Colors from "@/constants/colors";
 import { apiRequest, queryClient } from "@/lib/query-client";
+import { TAB_BAR_CONTENT_PADDING } from "@/constants/layout";
 
 function getTypeConfig(type: string) {
   switch (type) {
@@ -98,7 +99,7 @@ export default function NotificationsScreen() {
               </Pressable>
             );
           }}
-          contentContainerStyle={{ paddingTop: 12, paddingBottom: 120 }}
+          contentContainerStyle={{ paddingTop: 12, paddingBottom: TAB_BAR_CONTENT_PADDING }}
           showsVerticalScrollIndicator={false}
           onRefresh={refetch}
           refreshing={false}

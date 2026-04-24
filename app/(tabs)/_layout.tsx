@@ -3,15 +3,19 @@ import { Ionicons, MaterialCommunityIcons } from "@/components/AppIcons";
 import { Platform, StyleSheet, View, Text } from "react-native";
 import { BlurView } from "expo-blur";
 import React from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useQuery } from "@tanstack/react-query";
 import Colors from "@/constants/colors";
 
 export default function TabLayout() {
+  const insets = useSafeAreaInsets();
   const { data: unreadData } = useQuery<{ count: number }>({
     queryKey: ["/api/notifications/unread-count"],
     refetchInterval: 30000,
   });
   const unreadCount = unreadData?.count || 0;
+  const bottomPadding = Platform.OS === "web" ? 10 : Math.max(insets.bottom, 10);
+  const tabBarHeight = Platform.OS === "web" ? 76 : 64 + bottomPadding;
 
   return (
     <Tabs
@@ -28,13 +32,18 @@ export default function TabLayout() {
           }),
           borderTopWidth: 0,
           elevation: 0,
-          height: Platform.OS === "web" ? 84 : 88,
-          paddingBottom: Platform.OS === "web" ? 34 : 30,
+          height: tabBarHeight,
+          paddingBottom: bottomPadding,
           paddingTop: 8,
+        },
+        tabBarItemStyle: {
+          paddingVertical: 4,
         },
         tabBarLabelStyle: {
           fontFamily: "Montserrat_500Medium",
           fontSize: 10,
+          marginTop: 2,
+          marginBottom: Platform.OS === "web" ? 2 : 0,
         },
         tabBarBackground: () =>
           Platform.OS === "ios" ? (

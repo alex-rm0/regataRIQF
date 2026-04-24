@@ -8,6 +8,7 @@ import { Ionicons } from "@/components/AppIcons";
 import * as Haptics from "expo-haptics";
 import { apiRequest } from "@/lib/query-client";
 import Colors from "@/constants/colors";
+import { TAB_BAR_CONTENT_PADDING } from "@/constants/layout";
 
 export default function ContactScreen() {
   const insets = useSafeAreaInsets();
@@ -87,7 +88,7 @@ export default function ContactScreen() {
       >
         <ScrollView
           style={styles.form}
-          contentContainerStyle={{ paddingBottom: 140 }}
+          contentContainerStyle={{ paddingBottom: TAB_BAR_CONTENT_PADDING }}
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
