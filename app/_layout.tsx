@@ -16,7 +16,7 @@ import {
   Montserrat_700Bold,
   Montserrat_800ExtraBold,
 } from "@expo-google-fonts/montserrat";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons } from "@/components/AppIcons";
 import { StatusBar } from "expo-status-bar";
 
 SplashScreen.preventAutoHideAsync();

@@ -3,7 +3,7 @@ import {
   StyleSheet, Text, View, ScrollView, Pressable, Platform,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@/components/AppIcons";
 import { router } from "expo-router";
 import { useAdmin } from "@/lib/admin-context";
 import Colors from "@/constants/colors";

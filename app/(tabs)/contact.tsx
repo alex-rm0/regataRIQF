@@ -4,7 +4,7 @@ import {
   ScrollView, Alert, KeyboardAvoidingView, ActivityIndicator,
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@/components/AppIcons";
 import * as Haptics from "expo-haptics";
 import { apiRequest } from "@/lib/query-client";
 import Colors from "@/constants/colors";

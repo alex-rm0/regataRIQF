@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons } from "@/components/AppIcons";
 import { Platform, StyleSheet, View, Text } from "react-native";
 import { BlurView } from "expo-blur";
 import React from "react";
