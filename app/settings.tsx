@@ -20,7 +20,7 @@ export default function SettingsScreen() {
         <Pressable onPress={() => router.back()} hitSlop={12}>
           <Ionicons name="arrow-back" size={24} color={Colors.white} />
         </Pressable>
-        <Text style={styles.headerTitle}>Definicoes</Text>
+        <Text style={styles.headerTitle}>Definições</Text>
         <View style={{ width: 24 }} />
       </View>
 
@@ -43,7 +43,7 @@ export default function SettingsScreen() {
                 {isAdmin ? "Painel de Administracao" : "Acesso Administrador"}
               </Text>
               <Text style={styles.menuSubtitle}>
-                {isAdmin ? "Gerir provas, resultados e avisos" : "Iniciar sessao como administrador"}
+                {isAdmin ? "Gerir provas, resultados e avisos" : "Iniciar sessão como administrador"}
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={18} color={Colors.textLight} />
@@ -60,7 +60,7 @@ export default function SettingsScreen() {
                 <Ionicons name="log-out" size={20} color={Colors.danger} />
               </View>
               <View style={styles.menuContent}>
-                <Text style={[styles.menuTitle, { color: Colors.danger }]}>Terminar Sessao</Text>
+                <Text style={[styles.menuTitle, { color: Colors.danger }]}>Terminar Sessão</Text>
                 <Text style={styles.menuSubtitle}>Sair do modo administrador</Text>
               </View>
             </Pressable>
@@ -75,7 +75,7 @@ export default function SettingsScreen() {
             </View>
             <View style={styles.menuContent}>
               <Text style={styles.menuTitle}>Sobre a App</Text>
-              <Text style={styles.menuSubtitle}>Versao 1.0.0</Text>
+              <Text style={styles.menuSubtitle}>Versão 1.0.1</Text>
             </View>
           </View>
           <View style={[styles.menuItem, styles.menuItemBorder]}>
@@ -84,7 +84,7 @@ export default function SettingsScreen() {
             </View>
             <View style={styles.menuContent}>
               <Text style={styles.menuTitle}>Organização</Text>
-              <Text style={styles.menuSubtitle}>Secção de Desportos Nauticos - AAC</Text>
+              <Text style={styles.menuSubtitle}>Secção de Desportos Náuticos - AAC</Text>
             </View>
           </View>
           <View style={[styles.menuItem, styles.menuItemBorder]}>

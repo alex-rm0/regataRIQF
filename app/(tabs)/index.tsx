@@ -29,7 +29,7 @@ export default function HomeScreen() {
         onPress={() => router.push("/settings")}
         hitSlop={16}
         testID="settings-button"
-        accessibilityLabel="Definicoes"
+        accessibilityLabel="Definições"
         accessibilityRole="button"
       >
         <Ionicons name="settings-outline" size={22} color="rgba(255,255,255,0.8)" />
@@ -85,7 +85,7 @@ export default function HomeScreen() {
             )}
           </View>
 
-          <Text style={styles.sectionTitle}>Acesso Rapido</Text>
+          <Text style={styles.sectionTitle}>Acesso Rápido</Text>
           <View style={styles.quickActionsGrid}>
             <View style={styles.quickActionsRow}>
               <QuickAction
@@ -116,8 +116,8 @@ export default function HomeScreen() {
           <View style={styles.orgSection}>
             <Text style={styles.orgTitle}>Organização</Text>
             <Text style={styles.orgText}>
-              Secção de Desportos Nauticos{"\n"}
-              Associação Academica de Coimbra
+              Secção de Desportos Náuticos{"\n"}
+              Associação Académica de Coimbra
             </Text>
           </View>
         </View>

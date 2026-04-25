@@ -66,9 +66,9 @@ export default function ResultsScreen() {
 
       {filtersExpanded && (
         <View style={styles.filtersContainer}>
-          <FilterBar label="Escalao" options={CATEGORIES} selected={categoryFilter} onSelect={setCategoryFilter} />
-          <FilterBar label="Sexo" options={GENDERS} selected={genderFilter} onSelect={setGenderFilter} />
-          <FilterBar label="Embarcacao" options={BOAT_TYPES} selected={boatFilter} onSelect={setBoatFilter} />
+          <FilterBar label="Escalão" options={CATEGORIES} selected={categoryFilter} onSelect={setCategoryFilter} />
+          <FilterBar label="Género" options={GENDERS} selected={genderFilter} onSelect={setGenderFilter} />
+          <FilterBar label="Embarcação" options={BOAT_TYPES} selected={boatFilter} onSelect={setBoatFilter} />
         </View>
       )}
 
@@ -82,7 +82,7 @@ export default function ResultsScreen() {
           <Text style={styles.emptyTitle}>Sem resultados</Text>
           <Text style={styles.emptyText}>
             {totalWithResults === 0
-              ? "Os resultados serao publicados apos a conclusao das provas."
+              ? "Os resultados serão publicados apos a conclusão das provas."
               : "Nenhum resultado corresponde aos filtros selecionados."}
           </Text>
         </View>

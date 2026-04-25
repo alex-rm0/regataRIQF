@@ -35,16 +35,25 @@ function getPositionColor(pos: number): string {
 function getGenderLabel(g: string): string {
   if (g === "M") return "Masculino";
   if (g === "F") return "Feminino";
+  if (g === "X" || g === "MX") return "Misto";
   return g;
 }
 
 function getGenderShort(g: string): string {
   if (g === "Masculino") return "M";
   if (g === "Feminino") return "F";
+  if (g === "Misto") return "MX";
   return g.charAt(0);
 }
 
+function getGenderVariant(g: string): "masculino" | "feminino" | "misto" {
+  if (g === "F" || g === "Feminino") return "feminino";
+  if (g === "X" || g === "MX" || g === "Misto") return "misto";
+  return "masculino";
+}
+
 export function RaceCard({ raceNumber, time, category, gender, boatType, distance, phase, entries, showResults }: RaceCardProps) {
+  const genderVariant = getGenderVariant(gender);
   const sortedEntries = showResults
     ? [...entries].sort((a, b) => {
         if (a.position && b.position) return a.position - b.position;
@@ -72,7 +81,16 @@ export function RaceCard({ raceNumber, time, category, gender, boatType, distanc
           <View style={styles.categoryBadge}>
             <Text style={styles.categoryText}>{category}</Text>
           </View>
-          <View style={[styles.genderBadge, (gender === "F" || gender === "Feminino") ? styles.genderF : styles.genderM]}>
+          <View
+            style={[
+              styles.genderBadge,
+              genderVariant === "feminino"
+                ? styles.genderF
+                : genderVariant === "misto"
+                  ? styles.genderMixed
+                  : styles.genderM,
+            ]}
+          >
             <Text style={styles.genderText}>{getGenderShort(gender)}</Text>
           </View>
         </View>
@@ -204,7 +222,7 @@ const styles = StyleSheet.create({
     color: Colors.white,
   },
   genderBadge: {
-    width: 28,
+    width: 30,
     height: 28,
     borderRadius: 14,
     alignItems: "center",
@@ -216,9 +234,12 @@ const styles = StyleSheet.create({
   genderF: {
     backgroundColor: "#E91E8A",
   },
+  genderMixed: {
+    backgroundColor: "#8E44AD",
+  },
   genderText: {
     fontFamily: "Montserrat_700Bold",
-    fontSize: 12,
+    fontSize: 11,
     color: Colors.white,
   },
   infoRow: {

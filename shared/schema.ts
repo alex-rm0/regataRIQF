@@ -124,7 +124,7 @@ export type ContactMessage = typeof contactMessages.$inferSelect;
 export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
 
 export const CATEGORIES = ["Sub9", "Sub11", "Sub13", "Sub15", "Sub17", "Absoluto"] as const;
-export const GENDERS = ["Masculino", "Feminino"] as const;
+export const GENDERS = ["Masculino", "Feminino", "Misto"] as const;
 export const BOAT_TYPES = ["1x", "2x", "2-", "4x", "4-", "4+", "8+"] as const;
 export const PHASES = ["Série", "Repescagem", "Semifinal", "Final A", "Final B", "Direto"] as const;
 export const NOTIFICATION_TYPES = ["info", "warning", "urgent", "schedule"] as const;

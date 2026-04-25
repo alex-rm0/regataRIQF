@@ -574,7 +574,7 @@ export default function AdminScreen() {
                 </View>
               </View>
 
-              <Text style={styles.formLabel}>Escalao</Text>
+              <Text style={styles.formLabel}>Escalão</Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipRow}>
                 {CATEGORIES.map((c) => (
                   <Pressable key={c} onPress={() => setRaceForm({...raceForm, category: c})} style={[styles.formChip, raceForm.category === c && styles.formChipActive]}>
@@ -583,7 +583,7 @@ export default function AdminScreen() {
                 ))}
               </ScrollView>
 
-              <Text style={styles.formLabel}>Sexo</Text>
+              <Text style={styles.formLabel}>Género</Text>
               <View style={styles.chipRowWrap}>
                 {GENDERS.map((g) => (
                   <Pressable key={g} onPress={() => setRaceForm({...raceForm, gender: g})} style={[styles.formChip, raceForm.gender === g && styles.formChipActive]}>
@@ -592,7 +592,7 @@ export default function AdminScreen() {
                 ))}
               </View>
 
-              <Text style={styles.formLabel}>Embarcacao</Text>
+              <Text style={styles.formLabel}>Embarcação</Text>
               <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipRow}>
                 {BOAT_TYPES.map((b) => (
                   <Pressable key={b} onPress={() => setRaceForm({...raceForm, boatType: b})} style={[styles.formChip, raceForm.boatType === b && styles.formChipActive]}>
@@ -637,7 +637,7 @@ export default function AdminScreen() {
 
             <Text style={styles.formLabel}>Tipo</Text>
             <View style={styles.chipRowWrap}>
-              {[{v:"info",l:"Info"},{v:"warning",l:"Aviso"},{v:"urgent",l:"Urgente"},{v:"schedule",l:"Horario"}].map((t) => (
+              {[{v:"info",l:"Info"},{v:"warning",l:"Aviso"},{v:"urgent",l:"Urgente"},{v:"schedule",l:"Horário"}].map((t) => (
                 <Pressable key={t.v} onPress={() => setNotifForm({...notifForm, type: t.v})} style={[styles.formChip, notifForm.type === t.v && styles.formChipActive]}>
                   <Text style={[styles.formChipText, notifForm.type === t.v && styles.formChipTextActive]}>{t.l}</Text>
                 </Pressable>

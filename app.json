@@ -2,7 +2,7 @@
   "expo": {
     "name": "RIQF",
     "slug": "regata-qf-2026",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "regata-qf",

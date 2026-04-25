@@ -134,7 +134,7 @@ export default function ContactScreen() {
               style={styles.input}
               value={subject}
               onChangeText={setSubject}
-              placeholder="Ex: Questao sobre horarios"
+              placeholder="Ex: Questão sobre horários"
               placeholderTextColor={Colors.textLight}
             />
           </View>
@@ -145,7 +145,7 @@ export default function ContactScreen() {
               style={[styles.input, styles.textArea]}
               value={message}
               onChangeText={setMessage}
-              placeholder="Descreva a sua questao ou situacao..."
+              placeholder="Descreva a sua questão ou situação..."
               placeholderTextColor={Colors.textLight}
               multiline
               numberOfLines={5}
@@ -172,7 +172,7 @@ export default function ContactScreen() {
             )}
           </Pressable>
 
-          <Text style={styles.requiredNote}>* Campos obrigatorios</Text>
+          <Text style={styles.requiredNote}>* Campos obrigatórios</Text>
         </ScrollView>
       </KeyboardAvoidingView>
     </View>

@@ -16,7 +16,7 @@ function getTypeConfig(type: string) {
     case "warning":
       return { icon: "warning" as const, color: Colors.warning, bg: "rgba(243,156,18,0.1)", label: "Aviso" };
     case "schedule":
-      return { icon: "time" as const, color: Colors.info, bg: "rgba(52,152,219,0.1)", label: "Horario" };
+      return { icon: "time" as const, color: Colors.info, bg: "rgba(52,152,219,0.1)", label: "Horário" };
     default:
       return { icon: "information-circle" as const, color: Colors.primaryLight, bg: "rgba(42,90,106,0.1)", label: "Info" };
   }
@@ -57,7 +57,7 @@ export default function NotificationsScreen() {
           <Ionicons name="notifications-off-outline" size={48} color={Colors.textLight} />
           <Text style={styles.emptyTitle}>Sem avisos</Text>
           <Text style={styles.emptyText}>
-            Quando a organização publicar avisos, eles aparecerao aqui.
+            Quando a organização publicar avisos, eles vão aparecer aqui.
           </Text>
         </View>
       ) : (

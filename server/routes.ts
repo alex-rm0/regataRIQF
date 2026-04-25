@@ -8,6 +8,23 @@ import {
   getAllScheduleEntries, createScheduleEntry, updateScheduleEntry, deleteScheduleEntry,
   getAdmin, seedAdmin, seedSchedule, deleteAllRaces,
 } from "./storage";
+import { GENDERS } from "@shared/schema";
+
+const allowedGenders = new Set<string>(GENDERS);
+
+function normalizeGender(gender: unknown): string | null {
+  if (typeof gender !== "string") return null;
+
+  const value = gender.trim();
+  if (!value) return null;
+
+  if (value === "M") return "Masculino";
+  if (value === "F") return "Feminino";
+  if (value === "X" || value === "MX" || value.toLowerCase() === "misto") return "Misto";
+  if (allowedGenders.has(value)) return value;
+
+  return null;
+}
 
 function requireAdmin(req: Request, res: Response, next: Function) {
   const authHeader = req.headers.authorization;
@@ -56,12 +73,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   app.post("/api/races", requireAdmin, async (req: Request, res: Response) => {
-    const race = await createRace(req.body);
+    const normalizedGender = normalizeGender(req.body?.gender);
+    if (!normalizedGender) {
+      return res.status(400).json({ message: "Género invalido. Use Masculino, Feminino ou Misto." });
+    }
+
+    const race = await createRace({ ...req.body, gender: normalizedGender });
     res.status(201).json(race);
   });
 
   app.put("/api/races/:id", requireAdmin, async (req: Request, res: Response) => {
-    const race = await updateRace(req.params.id, req.body);
+    const payload = { ...req.body };
+    if (payload.gender !== undefined) {
+      const normalizedGender = normalizeGender(payload.gender);
+      if (!normalizedGender) {
+        return res.status(400).json({ message: "Género invalido. Use Masculino, Feminino ou Misto." });
+      }
+      payload.gender = normalizedGender;
+    }
+
+    const race = await updateRace(req.params.id, payload);
     if (!race) return res.status(404).json({ message: "Prova não encontrada" });
     res.json(race);
   });
@@ -126,11 +157,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let entriesCreated = 0;
 
       for (const r of importRaces) {
+        const normalizedGender = normalizeGender(r.gender || "Masculino");
+        if (!normalizedGender) {
+          return res.status(400).json({ message: `Género invalido na prova ${r.raceNumber ?? "sem numero"}. Use Masculino, Feminino ou Misto.` });
+        }
+
         const race = await createRace({
           raceNumber: r.raceNumber,
           time: r.time || "00:00",
           category: r.category || "Absoluto",
-          gender: r.gender || "Masculino",
+          gender: normalizedGender,
           boatType: r.boatType || "1x",
           distance: r.distance || 500,
           phase: r.phase || "Série",
