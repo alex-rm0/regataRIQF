@@ -2,6 +2,9 @@ import { fetch } from "expo/fetch";
 import { Platform } from "react-native";
 import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
+const NETLIFY_PRODUCTION_HOST = "appriqf2026.netlify.app";
+const RAILWAY_PRODUCTION_API_URL = "https://regatariqf-production.up.railway.app/";
+
 export function getApiUrl(): string {
   if (Platform.OS === "web" && typeof window !== "undefined") {
     const loc = window.location;
@@ -12,6 +15,10 @@ export function getApiUrl(): string {
     const explicitApiUrl = process.env.EXPO_PUBLIC_API_URL;
     if (explicitApiUrl) {
       return new URL(explicitApiUrl).href;
+    }
+
+    if (loc.hostname === NETLIFY_PRODUCTION_HOST) {
+      return RAILWAY_PRODUCTION_API_URL;
     }
 
     return new URL(loc.origin).href;
