@@ -157,43 +157,57 @@ export default function AdminScreen() {
         id: e.id,
         lane: e.lane,
         clubName: e.clubName,
-        resultTime: e.resultTime || "",
+        resultTime: normalizeResultTime(e.resultTime || ""),
         status: e.status || "DNS",
       }))
     );
     setShowResultModal(true);
   };
 
-  const formatTimeInput = (raw: string): string => {
-    const digits = raw.replace(/[^0-9]/g, "").slice(0, 7);
+  const normalizeResultTime = (raw: string): string => {
+    const trimmed = raw.trim().replace(",", ".");
+    if (!trimmed) return "";
+
+    const colonMatch = trimmed.match(/^(\d{1,2}):(\d{1,2})(?:\.(\d{1,2}))?$/);
+    if (colonMatch) {
+      const [, mins, secs, hundredths] = colonMatch;
+      return `${mins.padStart(2, "0")}:${secs.padStart(2, "0")}${hundredths ? `.${hundredths.padEnd(2, "0").slice(0, 2)}` : ""}`;
+    }
+
+    const legacyDotMatch = trimmed.match(/^(\d{1,2})\.(\d{1,2})$/);
+    if (legacyDotMatch) {
+      const [, mins, secs] = legacyDotMatch;
+      return `${mins.padStart(2, "0")}:${secs.padStart(2, "0")}`;
+    }
+
+    const digits = trimmed.replace(/[^0-9]/g, "").slice(0, 6);
     if (digits.length === 0) return "";
     if (digits.length <= 2) return digits;
     if (digits.length <= 4) {
-      const secs = digits.slice(0, -2);
-      const hundredths = digits.slice(-2);
-      return `${secs}.${hundredths}`;
+      const mins = digits.slice(0, -2);
+      const secs = digits.slice(-2);
+      return `${mins.padStart(2, "0")}:${secs}`;
     }
+
     const hundredths = digits.slice(-2);
     const remaining = digits.slice(0, -2);
     const secs = remaining.slice(-2);
     const mins = remaining.slice(0, -2);
-    return `${mins}:${secs}.${hundredths}`;
+    return `${mins.padStart(2, "0")}:${secs}.${hundredths}`;
   };
 
   const parseTimeToMs = (timeStr: string): number | null => {
     try {
-      const parts = timeStr.split(":");
+      const normalized = normalizeResultTime(timeStr);
+      if (!normalized.includes(":")) return null;
+
+      const parts = normalized.split(":");
       if (parts.length === 2) {
         const minutes = parseInt(parts[0]);
         const secParts = parts[1].split(".");
         const seconds = parseInt(secParts[0]);
         const ms = secParts.length > 1 ? parseInt(secParts[1].padEnd(3, "0").slice(0, 3)) : 0;
         return minutes * 60000 + seconds * 1000 + ms;
-      } else if (parts.length === 1) {
-        const secParts = timeStr.split(".");
-        const seconds = parseInt(secParts[0]);
-        const ms = secParts.length > 1 ? parseInt(secParts[1].padEnd(3, "0").slice(0, 3)) : 0;
-        return seconds * 1000 + ms;
       }
       return null;
     } catch { return null; }
@@ -217,7 +231,7 @@ export default function AdminScreen() {
 
     const results = resultEntries.map((e) => ({
       id: e.id,
-      resultTime: e.resultTime || null,
+      resultTime: e.resultTime ? normalizeResultTime(e.resultTime) : null,
       position: positionMap[e.id] || null,
       status: e.resultTime ? "FIN" : e.status,
     }));
@@ -375,7 +389,7 @@ export default function AdminScreen() {
 
                 {(race.entries || []).map((e: any) => (
                   <Text key={e.id} style={styles.entryLine}>
-                    Pista {e.lane}: {e.clubName} {e.resultTime ? `(${e.resultTime})` : ""}
+                    Pista {e.lane}: {e.clubName} {e.resultTime ? `(${normalizeResultTime(e.resultTime)})` : ""}
                   </Text>
                 ))}
 
@@ -718,10 +732,10 @@ export default function AdminScreen() {
                     value={entry.resultTime}
                     onChangeText={(v) => {
                       const updated = [...resultEntries];
-                      updated[idx] = { ...updated[idx], resultTime: formatTimeInput(v) };
+                      updated[idx] = { ...updated[idx], resultTime: normalizeResultTime(v) };
                       setResultEntries(updated);
                     }}
-                    placeholder="M:SS.ss"
+                    placeholder="02:00.00"
                     keyboardType="numeric"
                     placeholderTextColor={Colors.textLight}
                   />

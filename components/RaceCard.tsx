@@ -52,6 +52,27 @@ function getGenderVariant(g: string): "masculino" | "feminino" | "misto" {
   return "masculino";
 }
 
+function formatResultTimeDisplay(resultTime: string | null): string | null {
+  if (!resultTime) return null;
+
+  const trimmed = resultTime.trim().replace(",", ".");
+  if (!trimmed) return null;
+
+  const colonMatch = trimmed.match(/^(\d{1,2}):(\d{1,2})(?:\.(\d{1,2}))?$/);
+  if (colonMatch) {
+    const [, mins, secs, hundredths] = colonMatch;
+    return `${mins.padStart(2, "0")}:${secs.padStart(2, "0")}${hundredths ? `.${hundredths.padEnd(2, "0").slice(0, 2)}` : ""}`;
+  }
+
+  const legacyDotMatch = trimmed.match(/^(\d{1,2})\.(\d{1,2})$/);
+  if (legacyDotMatch) {
+    const [, mins, secs] = legacyDotMatch;
+    return `${mins.padStart(2, "0")}:${secs.padStart(2, "0")}`;
+  }
+
+  return trimmed;
+}
+
 export function RaceCard({ raceNumber, time, category, gender, boatType, distance, phase, entries, showResults }: RaceCardProps) {
   const genderVariant = getGenderVariant(gender);
   const sortedEntries = showResults
@@ -146,7 +167,7 @@ export function RaceCard({ raceNumber, time, category, gender, boatType, distanc
                 </View>
                 {showResults && hasResults && (
                   <Text style={[styles.timeResultText, { flex: 0.5, textAlign: "right" as const }]}>
-                    {entry.resultTime || (entry.status === "DNS" ? "DNS" : entry.status === "DNF" ? "DNF" : "-")}
+                    {formatResultTimeDisplay(entry.resultTime) || (entry.status === "DNS" ? "DNS" : entry.status === "DNF" ? "DNF" : "-")}
                   </Text>
                 )}
               </View>
