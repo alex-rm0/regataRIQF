@@ -43,7 +43,7 @@ export default function ContactScreen() {
       setSubject("");
       setMessage("");
     } catch (err) {
-      Alert.alert("Erro", "Nao foi possivel enviar a mensagem. Tente novamente.");
+      Alert.alert("Erro", "Não foi possível enviar a mensagem. Tente novamente.");
     } finally {
       setSending(false);
     }
@@ -61,7 +61,7 @@ export default function ContactScreen() {
           </View>
           <Text style={styles.successTitle}>Mensagem enviada!</Text>
           <Text style={styles.successText}>
-            A organização recebeu a sua mensagem e respondera o mais brevemente possivel.
+            A organização recebeu a sua mensagem e responderá o mais brevemente possível.
           </Text>
           <Pressable
             style={({ pressed }) => [styles.newMessageBtn, pressed && { opacity: 0.8 }]}

@@ -78,7 +78,7 @@ export default function ProgramScreen() {
           <Text style={styles.emptyTitle}>Sem provas</Text>
           <Text style={styles.emptyText}>
             {races.length === 0
-              ? "O programa ainda nao foi publicado."
+              ? "O programa ainda não foi publicado."
               : "Nenhuma prova corresponde aos filtros selecionados."}
           </Text>
         </View>

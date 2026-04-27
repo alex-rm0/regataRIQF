@@ -196,6 +196,29 @@ export default function AdminScreen() {
     return `${mins.padStart(2, "0")}:${secs}.${hundredths}`;
   };
 
+  const sanitizeResultTimeInput = (raw: string): string => {
+    const sanitized = raw.replace(",", ".").replace(/[^0-9:.]/g, "");
+    const firstColon = sanitized.indexOf(":");
+    const firstDot = sanitized.indexOf(".");
+
+    let result = sanitized;
+
+    if (firstColon !== -1) {
+      result =
+        sanitized.slice(0, firstColon + 1) +
+        sanitized.slice(firstColon + 1).replace(/:/g, "");
+    }
+
+    const dotIndex = result.indexOf(".");
+    if (dotIndex !== -1) {
+      result =
+        result.slice(0, dotIndex + 1) +
+        result.slice(dotIndex + 1).replace(/\./g, "");
+    }
+
+    return result.slice(0, 9);
+  };
+
   const parseTimeToMs = (timeStr: string): number | null => {
     try {
       const normalized = normalizeResultTime(timeStr);
@@ -268,7 +291,7 @@ export default function AdminScreen() {
   const saveScheduleEntry = async () => {
     const timeRegex = /^\d{2}:\d{2}$/;
     if (!timeRegex.test(scheduleForm.time)) {
-      Alert.alert("Formato invalido", "A hora deve estar no formato HH:MM (ex: 09:30)");
+      Alert.alert("Formato inválido", "A hora deve estar no formato HH:MM (ex: 09:30)");
       return;
     }
     const payload = {
@@ -732,7 +755,12 @@ export default function AdminScreen() {
                     value={entry.resultTime}
                     onChangeText={(v) => {
                       const updated = [...resultEntries];
-                      updated[idx] = { ...updated[idx], resultTime: normalizeResultTime(v) };
+                      updated[idx] = { ...updated[idx], resultTime: sanitizeResultTimeInput(v) };
+                      setResultEntries(updated);
+                    }}
+                    onBlur={() => {
+                      const updated = [...resultEntries];
+                      updated[idx] = { ...updated[idx], resultTime: normalizeResultTime(updated[idx].resultTime) };
                       setResultEntries(updated);
                     }}
                     placeholder="02:00.00"

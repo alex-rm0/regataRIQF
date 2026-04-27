@@ -64,9 +64,9 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     } catch (error) {
       const message = error instanceof Error ? error.message : "";
       if (message.startsWith("401:")) {
-        return "Credenciais invalidas";
+        return "Credenciais inválidas";
       }
-      return "Nao foi possivel contactar o servidor";
+      return "Não foi possível contactar o servidor";
     }
   };
 
